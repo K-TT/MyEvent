@@ -7,5 +7,11 @@ module.exports.displayHomePage = (req, res, next) => {
 
 /* Display Login Page */
 module.exports.displayLoginPage = (req, res, next) => {
-    res.render('index', { title: 'Login', page: 'login' });
+    res.render('auth/login', { title: 'Login', page: 'login' });
 };
+
+/* Display Register Page */
+module.exports.displayRegisterPage = (req, res, next) => {
+    res.render('auth/register', {title: 'Register', page: 'register' });
+}
+

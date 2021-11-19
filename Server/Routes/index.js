@@ -14,6 +14,7 @@ router.get('/login', indexController.displayLoginPage);
 //TODO
 // Add login display and process
 // Add register display and process
+router.get('/register', indexController.displayRegisterPage);
 // Process logout
 
 module.exports = router;

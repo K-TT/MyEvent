@@ -49,7 +49,7 @@ let EventModel = mongoose.Schema
     tags:
     {
         type:String,
-        enum: ["onlineEvents", "FoodAndDrink", "Health","Game","Music","Dance","Education","Children","Parents","Technology","Career"],
+        enum: ["School", "College", "Singles","Couples","LGBTQA","Culture","Newcomers","Party","Pet","Recruiters","Jobseeker","Profession","Businessowners","Religious","Languageexchange","Motivationalspeaker","Anime","Gamers","Movielovers","Artists","Bookworms","Cosplayers","Stargazing","Naturelovers","Sportsman","Hikers"],
        
 
     }

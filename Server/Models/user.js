@@ -1,3 +1,4 @@
+const { SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG } = require('constants');
 let mongoose = require('mongoose');
 let passportLocalMongoose = require('passport-local-mongoose');
 
@@ -53,6 +54,11 @@ let UserModel = mongoose.Schema
     {
         type:String,
     },
+
+    keywordsarray:
+    [{
+        type:String,
+    }],
 
     savedEvent:
     {
