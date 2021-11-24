@@ -19,8 +19,8 @@ router.get('/login', indexController.displayLoginPage);
 /* GET Register page */
 router.get('/register', indexController.displayRegisterPage);
 
-/* TODO POST - Process register page */
-router.post('/register', indexController.displayLoginPage);
+/* POST - Process register page */
+router.post('/register', indexController.processRegisterPage);
 
 // TODO Process logout
 
