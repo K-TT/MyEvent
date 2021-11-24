@@ -3,8 +3,8 @@ let express = require('express');
 let passport = require('passport');
 
 // create instance of user model
-let userModel = require("../Models/user");
-let User = userModel.User; // alias
+let userModel = require('../Models/user');
+let User = userModel.User;
 
 /* Display Home Page */
 module.exports.displayHomePage = (req, res, next) => {
@@ -43,7 +43,7 @@ module.exports.displayRegisterPage = (req, res, next) => {
 /* Process Register Page */
   module.exports.processRegisterPage = (req, res, next) => {
     // instantiate a user object
-    let newUser = new userModel({
+    let newUser = new User({
       username: req.body.username.toLowerCase(),
       email: req.body.email,
       firstName: req.body.fname,
@@ -52,7 +52,7 @@ module.exports.displayRegisterPage = (req, res, next) => {
       //birthday: req.body.birthday,
       //tags: [req.body.type]
     });
-    userModel.register(newUser, req.body.password, (err) => {
+    User.register(newUser, req.body.password, (err) => {
       if (err) {
         console.log("Error: Inserting New User");
         if (err.name == "UserExistsError") {
