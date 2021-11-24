@@ -155,10 +155,7 @@ module.exports.displayRegisterPage = (req, res, next) => {
     });
   };
 
-/* Display Profile Page */
-  module.exports.displayProfilePage = (req, res, next) => {
-  res.render('index', {title: 'Profile', page: 'profile'});
-};
+  /
 
   /* Display Saved Events Page */
 module.exports.displaySavedEventsPage = (req, res, next) => {

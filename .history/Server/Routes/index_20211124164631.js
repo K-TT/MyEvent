@@ -28,7 +28,7 @@ router.post('/register', indexController.processRegisterPage);
 router.get('/saved-events', indexController.displaySavedEventsPage);
 
 /* GET Profile page */
-router.get('/profile', indexController.displayProfilePage);
+router.get('/profile', indexController.displaySavedEventsPage);
 
 
 module.exports = router;

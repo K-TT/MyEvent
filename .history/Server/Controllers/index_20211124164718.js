@@ -156,8 +156,8 @@ module.exports.displayRegisterPage = (req, res, next) => {
   };
 
 /* Display Profile Page */
-  module.exports.displayProfilePage = (req, res, next) => {
-  res.render('index', {title: 'Profile', page: 'profile'});
+  module.exports.displayPage = (req, res, next) => {
+  res.render('index', {title: 'Saved Events', page: 'savedevents'});
 };
 
   /* Display Saved Events Page */
