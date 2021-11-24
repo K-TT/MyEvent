@@ -48,7 +48,7 @@ let eventSchema = new mongoose.Schema({
 });
 
 // User Schema
-let User = mongoose.Schema(
+let UserModel = mongoose.Schema(
     {
       username: 
       {
@@ -86,24 +86,16 @@ let User = mongoose.Schema(
         trim: true,
         required: "city is required",
       },
-      address:
+      birthday: 
       {
-        type: String,
-        default: "",
+        type: Date,
         trim: true,
-        required: "address is required",
+        required: "birthday is required",
       },
-      phonenumber:
-      {
-        type: String,
-        default: "",
-        trim: true,
-        required: "phonenumber is required",
-      },
-      //events: [eventSchema],
-      //savedEvents: [eventSchema],
-      //notInterestedEvents: [eventSchema],
-      // tags: [String],
+      events: [eventSchema],
+      savedEvents: [eventSchema],
+      notInterestedEvents: [eventSchema],
+      tags: [String],
       created: 
       {
         type: Date,
@@ -123,6 +115,6 @@ let User = mongoose.Schema(
 
 let options = { missingPasswordError: "Incorrect / Missing Password" };
 
-User.plugin(passportLocalMongoose, options);
+UserModel.plugin(passportLocalMongoose, options);
 
-module.exports.User = mongoose.model("User", User);
+module.exports = mongoose.model("User", UserModel);

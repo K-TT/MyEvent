@@ -15,8 +15,7 @@ let cors = require('cors');
 
 // Authentication objects
 let localStrategy = passportLocal.Strategy; // alias
-let usermodel = require('../Models/user');
-let User = usermodel.User;
+let User = require('../Models/user');
 
 // Module for auth messaging and error management
 let flash = require('connect-flash');
