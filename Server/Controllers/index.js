@@ -67,6 +67,11 @@ module.exports.displayRegisterPage = (req, res, next) => {
     });
   };
 
+  module.exports.performLogout = (req, res, next) => {
+    req.logout();
+    res.redirect('/');
+  }
+
   /* Display Saved Events Page */
 module.exports.displaySavedEventsPage = (req, res, next) => {
   res.render('index', {title: 'Saved Events', page: 'savedevents'});

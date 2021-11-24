@@ -48,7 +48,7 @@ let eventSchema = new mongoose.Schema({
 });
 
 // User Schema
-let UserModel = mongoose.Schema(
+let User = mongoose.Schema(
     {
       username: 
       {
@@ -117,4 +117,4 @@ let options = { missingPasswordError: "Incorrect / Missing Password" };
 
 UserModel.plugin(passportLocalMongoose, options);
 
-module.exports = mongoose.model("User", UserModel);
+module.exports.User = mongoose.model("User", User);
