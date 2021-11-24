@@ -1,7 +1,11 @@
 body {
-    background-color: #FEF9EF;
+    background: #FEF9EF;
     font-family: "Poppins", sans-serif;
     color: black;
+  }
+
+  a {
+      color: #2E8BC0;
   }
 
 /* Start Home Page */
@@ -80,6 +84,77 @@ h1 {
 /* End login page */
 
 /* Start Register page */
+
+.regForm {
+    background-color: #FEE440;
+    border-radius: 10px;
+}
+
+.regForm .form-control {
+    background-color: white;
+    border: none;
+}
+
+.regForm .select {
+    border: none;
+}
+
+.regForm .ctyDropDown {
+    background-color: white;
+}
+
+.regForm .regBtn {
+    background-color: #FF865E;
+    color: white;
+    font-size: medium;
+}
+
+.interestsCB {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cbContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.cbContainer div {
+    margin: 5px;
+}
+
+.cbContainer div label {
+    cursor: pointer;
+}
+
+.cbContainer div label input[type="checkbox"] {
+    display: none;
+}
+
+.cbContainer div label span {
+    position: relative;
+    display: inline-block;
+    background: #ffffff2f;
+    padding: 10px 10px;
+    color: #555;
+    border-radius: 30px;
+    transition: 0.5s;
+    user-select: none;
+    overflow: hidden;
+}
+
+
+.cbContainer div label input[type="checkbox"]:checked ~ span {
+    background: #2E8BC0;
+    color: white;
+}
+
 
   /* End Register page */
 

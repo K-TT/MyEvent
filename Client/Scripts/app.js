@@ -19,7 +19,7 @@ login_dict={
 function getInputValue(){
     // Selecting the input element and get its value
     var inputVal = document.getElementById("userName").value;
-    var passwordVal = document.getElementById("password").value;
+    var passwordVal = document.getElementById("password1").value;
     if (inputVal == "" || passwordVal == "") { alert("Please enter your ID and password!");} 
     else {
         if (login_dict.hasOwnProperty(inputVal)) {

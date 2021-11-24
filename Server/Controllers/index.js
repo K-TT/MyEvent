@@ -1,3 +1,4 @@
+const { Console } = require('console');
 let express = require('express');
 let passport = require('passport');
 
@@ -30,15 +31,28 @@ module.exports.displayRegisterPage = (req, res, next) => {
     }
   };
   
+  // Get city value
+  //let citySelection = document.getElementById("ctySelection").value;
+
+  // Get interests
+  /*let interestsSelection = [];
+  $("input:checkbox[name=type]:checked").each(function(){
+    interestsSelection.push($(this).val());
+});*/
 
 /* Process Register Page */
   module.exports.processRegisterPage = (req, res, next) => {
     // instantiate a user object
-    let newUser = new User({
+    let newUser = new userModel({
       username: req.body.username.toLowerCase(),
       email: req.body.email,
+      firstName: req.body.fname,
+      lastName: req.body.lname,
+      //city: req.body.citySel,
+      //birthday: req.body.birthday,
+      //tags: [req.body.type]
     });
-    User.register(newUser, req.body.password, (err) => {
+    userModel.register(newUser, req.body.password, (err) => {
       if (err) {
         console.log("Error: Inserting New User");
         if (err.name == "UserExistsError") {
@@ -59,18 +73,13 @@ module.exports.displayRegisterPage = (req, res, next) => {
         // if no error exists, then registration is successful
   
         // redirect user and authenticate them
-  
+        console.log("Registration Successful");
         return passport.authenticate("local")(req, res, () => {
           res.redirect("/");
         });
       }
     });
   };
-
-  module.exports.performLogout = (req, res, next) => {
-    req.logout();
-    res.redirect('/');
-  }
 
   /* Display Saved Events Page */
 module.exports.displaySavedEventsPage = (req, res, next) => {

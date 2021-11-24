@@ -16,9 +16,33 @@
           <li class="nav-item">
             <a class="nav-link" href="/saved-events"><i class="fas fa-heart"></i> Saved Events</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"></i> Sign In</a>
-          </li>
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <% if(typeof username == 'string' && username) { %>
+            <i class="bi bi-person-circle other-color"></i> <%= username %>
+          <% } else { %>
+            <i class="fas fa-user-circle"></i> Login
+            <% } %>
+          </a>
+
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <% if(typeof username == 'string' && username) { %>
+            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+            <% } else { %>
+            <% if (page === "login") { %>
+            <li><a class="dropdown-item active" id="dropdownActive" href="/login">Login</a></li>
+            <% } else { %>
+            <li><a class="dropdown-item" href="/login">Login</a></li>
+            <% } %>
+            <li><hr class="dropdown-divider"></li>
+            <% if (page === "register") { %>
+            <li><a class="dropdown-item active" id="dropdownActive" href="/register">Register</a></li>
+            <% } else { %>
+            <li><a class="dropdown-item" href="/register">Register</a></li>
+            <% } %>
+            <% } %>
+          </ul>
+        </li>
         </ul>
       </div>
     </div>
