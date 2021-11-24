@@ -86,18 +86,16 @@
     <section id="pop_events">
       <h3>Popular events</h3>
 
-      <div id="PopularEventsCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+      <div id="PopularEventsCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
-        <div class="carousel-inner">
+        
         <div class="carousel-item active">
-          <div class="overlay-image"
-          style="background-image:url(Assets/carousel_images/forest1.jpeg);"></div>
           <div class="container">
-        <!-- <img src="Assets/carousel_images/forest1.jpeg" class="d-block w-100" alt="Forest in the dark">-->
+            <img src="Assets/carousel_images/forest1.jpeg" class="d-block w-100" alt="Forest in the dark">
             <h5>First event name</h5>
             <p>First event description.</p>
             <a href="#" class="btn btn-lg btn-primary">
@@ -107,10 +105,8 @@
         </div>
         
         <div class="carousel-item ">
-        <div class="overlay-image"
-          style="background-image:url(Assets/carousel_images/forest2.jpeg);"></div>
-         
           <div class="container">
+            <img src="Assets/carousel_images/forest2.jpeg" class="d-block w-100" alt="Forest with sunlight">
             <h5>Second event name</h5>
             <p>Second event description.</p>
             <a href="#" class="btn btn-lg btn-primary">
@@ -119,9 +115,8 @@
           </div>
         </div>
         <div class="carousel-item">
-        <div class="overlay-image"
-          style="background-image:url(Assets/carousel_images/mountain.jpeg);"></div>
           <div class="container">
+            <img src="Assets/carousel_images/mountain.jpeg" class="d-block w-100" alt="mountains">
             <h5>Third event name</h5>
             <p>Third event description.</p>
             <a href="#" class="btn btn-lg btn-primary">
@@ -130,18 +125,17 @@
           </div>
         </div>
   
-        <button class="carousel-control-prev" type="button" data-bs-target="#PopularEventsCarousel" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#PopularEventsCarousel" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
         </button>
-        </div>
       </div>
 
     </section>
-
+    
   </main>
 </div>

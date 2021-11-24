@@ -63,7 +63,6 @@ section p {
 
 #intro .card {
     border: 1;
-    border-radius: 30px;
     text-align: center;
     margin: 20px;
 }
@@ -80,25 +79,18 @@ section p {
 
 .carousel-item {
     height: 32rem;
-    background: #000;
+    background: #777;
     position: relative;
-    color: #FF865E;
-}
-
-#pop_events {
-    border: 1;
-    border-radius: 30px;
-    box-shadow: 11px 7px 16px #f0e294;
-    margin-bottom: 100px;
-    background-color: #285fa8;
+    background-position: center;
+    background-size: cover;
 }
 
 #pop_events .container {
     position: absolute;
+    bottom: 0;
     left: 0;
     right: 0;
-    bottom: 0;
-    margin: 20px;
+    padding-bottom: 50 px;
 }
 
 .overlay-image {
@@ -106,8 +98,4 @@ section p {
     bottom: 0;
     left: 0;
     right: 0;
-    top: 0;
-    background-position: center;
-    background-size: cover;
-    opacity: 0.5;
 }

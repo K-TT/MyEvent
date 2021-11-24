@@ -63,7 +63,6 @@ section p {
 
 #intro .card {
     border: 1;
-    border-radius: 30px;
     text-align: center;
     margin: 20px;
 }
@@ -78,36 +77,4 @@ section p {
     margin-bottom: 20px;
 }
 
-.carousel-item {
-    height: 32rem;
-    background: #000;
-    position: relative;
-    color: #FF865E;
-}
-
-#pop_events {
-    border: 1;
-    border-radius: 30px;
-    box-shadow: 11px 7px 16px #f0e294;
-    margin-bottom: 100px;
-    background-color: #285fa8;
-}
-
-#pop_events .container {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: 20px;
-}
-
-.overlay-image {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: 0;
-    background-position: center;
-    background-size: cover;
-    opacity: 0.5;
-}
+#pop_events {}
