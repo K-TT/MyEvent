@@ -15,7 +15,6 @@ let cors = require('cors');
 
 // Authentication objects
 let localStrategy = passportLocal.Strategy; // alias
-let User = require('../Models/user');
 
 // Module for auth messaging and error management
 let flash = require('connect-flash');
@@ -23,6 +22,7 @@ let flash = require('connect-flash');
 // Attach Router files
 let indexRouter = require('../Routes/index');
 let eventsRouter = require('../Routes/events');
+let usersRouter = require('../Routes/users');
 
 // App Configuration
 let app = express();
@@ -67,7 +67,11 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Implement an Auth Strategy
+// Create user model instance
+let userModel = require('../Models/user');
+let User = userModel.User;
+
+// Implement a User authentication strategy
 passport.use(User.createStrategy());
 
 // Serialize and deserialize user data
@@ -77,6 +81,7 @@ passport.deserializeUser(User.deserializeUser());
 // Routes
 app.use('/', indexRouter);
 app.use('/events', eventsRouter);
+app.use("/users", usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
