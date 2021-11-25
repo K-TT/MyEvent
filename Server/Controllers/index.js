@@ -30,13 +30,6 @@ module.exports.displayRegisterPage = (req, res, next) => {
       return res.redirect("/");
     }
   };
-  
-  // Get interests
-  /*let interestsSelection = [];
-  $("input:checkbox[name=type]:checked").each(function(){
-    interestsSelection.push($(this).val());
-});*/
-
 
 /* Process Register Page */
   module.exports.processRegisterPage = (req, res, next) => {
