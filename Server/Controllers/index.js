@@ -8,7 +8,7 @@ let User = userModel.User; // alias
 
 /* Display Home Page */
 module.exports.displayHomePage = (req, res, next) => {
-    res.render('index', {title: 'MyEvent', page: 'home'});
+    res.render('index', {title: 'MyEvent', page: 'home', username: req.user ? req.user.username : ''});
 };
 
 /* Display Login Page */
@@ -200,10 +200,10 @@ module.exports.performLogout = (req, res, next) => {
 
 /* Display Profile Page */
   module.exports.displayProfilePage = (req, res, next) => {
-  res.render('index', {title: 'Profile', page: 'profile'});
+  res.render('index', {title: 'Profile', page: 'profile', username: req.user ? req.user.username : ''});
 };
 
   /* Display Saved Events Page */
 module.exports.displaySavedEventsPage = (req, res, next) => {
-  res.render('index', {title: 'Saved Events', page: 'savedevents'});
+  res.render('index', {title: 'Saved Events', page: 'savedevents', username: req.user ? req.user.username : ''});
 };
