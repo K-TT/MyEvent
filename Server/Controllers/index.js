@@ -203,3 +203,8 @@ module.exports.performLogout = (req, res, next) => {
 module.exports.displaySavedEventsPage = (req, res, next) => {
   res.render('index', {title: 'Saved Events', page: 'savedevents', username: req.user ? req.user.username : ''});
 };
+
+  /* Display Event Details Page */
+  module.exports.displayEventDetailsPage = (req, res, next) => {
+    res.render('index', {title: 'Event Details', page: 'eventdetails'});
+  };

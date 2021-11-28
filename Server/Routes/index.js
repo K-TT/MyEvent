@@ -28,4 +28,8 @@ router.get('/logout', indexController.performLogout);
 router.get('/saved-events', indexController.displaySavedEventsPage);
 
 
+/* GET Event Details page */
+router.get('/event-details', indexController.displayEventDetailsPage);
+
+
 module.exports = router;
