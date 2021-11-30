@@ -15,9 +15,8 @@ module.exports.displayFindEventsPage = (req, res, next) => {
 };
 
   /* Display Saved Events Page */
-
-  // YOU HAVE TO BE LOGGED IN
   module.exports.displaySavedEventsPage = (req, res, next) => {
+    // redirect users to the login page if they are not logged in
     if (req.user == null)
     {
         return res.redirect('/login');
@@ -33,13 +32,13 @@ module.exports.displayFindEventsPage = (req, res, next) => {
         }
         else
         {
-            //show the edit view
+            //show the saved events view
             res.render('index',
             {
                 title: 'Saved Events',
                 page: 'savedevents',
                 username: req.user ? req.user.username : '',
-                user: user
+                user: user // send the user object to the page
             }); 
         }
     });
