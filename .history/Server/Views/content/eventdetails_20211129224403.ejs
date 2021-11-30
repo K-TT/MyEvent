@@ -2,31 +2,31 @@
 
 <div class="mainWindow">
   <div class="photoContainer"></div>
-  <h1 class id="signInTitle">Event:Night of Lights</h1>
+  <h1 class id="signInTitle">Event:<%= eventSchema.eventName %></h1>
 
   <div class="location">
     <img src="Assets/images/location_pin.png" class="img-fluid" alt="Location Pin" width="20" height="20">
-    <h5 class="townLbl">Location:Vaughan </h5>
+    <h5 class="townLbl">Location:<%= eventSchema.city %> </h5>
   </div>
     
     <div class="eventTime">
-     <h6>Event Start Time: 2021-11-26</h6>
-     <h6>Event End Time: 2022-01-07</h6>
+    <h6>Event Start Time: <%=eventSchema.eventStartTime%></h6>
+     <h6>Event End Time: <%=eventSchema.eventEndTime%></h6>
   </div>
 
  <div class="price">
- <h6>Price: 19.99</h6>
+    <h6>Price: <%= eventSchema.price%></h6>
   </div>
-
-<div class="tags">
-    <h6>Tags: Culture  Singles</h6>
-  </div> 
 
    <div class="descriptionContainer">
-    <h6> A holiday lights spectacular featuring over 1,000,000 led lights</h6>
+    <h6> <%= eventSchema.description%></h6>
   </div>
 
-   
+
+  <div class="tags">
+    <h6><%= eventSchema.tags%></h6>
+  </div>  
+
  
 <!--
   <button type="submit" class="btn" id="btnNotInterested">Not Interested</button>
