@@ -18,6 +18,11 @@ module.exports.displayFindEventsPage = (req, res, next) => {
 
   // YOU HAVE TO BE LOGGED IN
   module.exports.displaySavedEventsPage = (req, res, next) => {
+    if (req.user == null)
+    {
+        return res.redirect('/login');
+    }
+    
     let id = req.user.id;
 
     User.findById(id, (err, user) => {
