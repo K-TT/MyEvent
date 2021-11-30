@@ -11,4 +11,7 @@ router.get('/', eventsController.displayFindEventsPage);
 // /events/saved-events
 router.get('/saved-events', eventsController.displaySavedEventsPage);
 
+/* GET Event Details page */
+router.get('/event-details', eventsController.displayEventDetailsPage);
+
 module.exports = router;
