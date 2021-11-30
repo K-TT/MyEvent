@@ -24,10 +24,6 @@ router.post('/register', indexController.processRegisterPage);
 /* GET - Process Logout */
 router.get('/logout', indexController.performLogout);
 
-/* GET Saved Events page */
-router.get('/saved-events', indexController.displaySavedEventsPage);
-
-
 /* GET Event Details page */
 router.get('/event-details', indexController.displayEventDetailsPage);
 
