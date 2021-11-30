@@ -31,7 +31,7 @@ module.exports.displayProfilePage = (req, res, next) => {
   
 };
 
-/*Process Profile Page*/
+/*Process Profile Page 8*/
 module.exports.processProfilePage = (req, res, next) => {
     let id = req.params.id
     let newUser = new User({

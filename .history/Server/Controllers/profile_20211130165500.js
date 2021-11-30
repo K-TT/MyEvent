@@ -9,9 +9,8 @@ let User = userModel.User; // alias
 /* Display Profile Page */
 module.exports.displayProfilePage = (req, res, next) => {
 
-    let id = req.user.id;
-
-  User.findById(id,(err, user) => {
+    let id = req
+  User.find((err, profile) => {
         if (err)
         {
             return console.error(err);
@@ -24,14 +23,13 @@ module.exports.displayProfilePage = (req, res, next) => {
                 page: 'profile',
                 profile:User ,
                 username: req.user ? req.user.username : '',
-                user:user
             });
         }
     });
   
 };
 
-/*Process Profile Page*/
+/* Process Profile Page 
 module.exports.processProfilePage = (req, res, next) => {
     let id = req.params.id
     let newUser = new User({
@@ -61,4 +59,4 @@ module.exports.processProfilePage = (req, res, next) => {
     });
 
   
-};
+};*/
