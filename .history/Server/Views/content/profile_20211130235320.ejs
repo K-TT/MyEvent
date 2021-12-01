@@ -1,0 +1,88 @@
+<style>
+ #colour{
+  background-color: #FF865E;
+ }
+    
+
+</style>
+
+            <div class="container">
+              <div class="row">
+              
+              </div>
+
+              <form method="POST" class="mt-5 p-4 regForm">
+
+              <!-- user picturw -->
+              <input  type="file" name="image" /><br /><br />
+
+              <!-- user bio  -->
+                <h4 class="text-center mb-4">About me:</h4> 
+                <div class="form-outline mb-4 col-md-12">
+                <input type="text" name="userbio" id="ubio" class="form-control"></>
+                <label class="form-label" for="ubio"></label>
+                </div>
+
+
+            <!--  first and last names -->
+                    
+           
+              <h4 class="text-center mb-4">Name:</h4> 
+                <div class="form-outline mb-4 col-md-12">
+               
+                  <label class="form-label" for="uname"></label>
+              </div>
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                  <input type="text" name="fname" id="frstname" class="form-control"  value="<%=user.firstName%> "> </%>
+                    <label class="form-label" for="frstname"></label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input type="text" name="lname" id="lstname" class="form-control"  value="<%=user.lastName%>"/>
+                    <label class="form-label" for="lstname"></label>
+                  </div>
+                </div>
+              </div> 
+ 
+
+                  <!-- City input -->
+                  <h4 class="text-center mb-4">Location:</h4> 
+                  <div class="form-outline mb-4 col-md-12">
+                    <input  type="text" id="ctySelection" class="form-control" name="citySel" value="<%=user.city%>"/> </>
+                    <label class="form-label" for="emailAddress"></label>
+                  </div>
+
+
+                  <div class="col">
+                   <h4 class="text-center mb-4">Birthday:</h4> 
+                  <div class="form-outline datepicker" data-mdb-format="yyyy/mm/dd" data-mdb-inline="true" >
+                    <input type="text" name="birthday" class="form-control" id="bdayPicker" value="<%=user.birthday%>"/>
+                    <label for="bdayPicker" class="form-label"></label>
+                  </div>
+                </div>
+                
+                <!-- Interests input
+                <h4 class="text-center mb-2 pt-2">Interests</h4>
+                <div class="container cbContainer">
+                  <div class="interestsCB">
+                    <label for="Anime">
+                      <input type="checkbox"  value="<%=user.tags%>">
+                      <span value="<%=user.tags%>"></span>
+                    </label>
+                  </div>
+                  </div>
+
+
+
+
+                  <!-- Edit profile button -->
+                  <div class="col-md-4 ms-auto me-auto pt-4">
+                    <button type="submit" id="submitButton" class="btn btn-block mb-4 regBtn" value="Register">Save</button>
+                  </div>
+                </form>
+              </div>
+
+
