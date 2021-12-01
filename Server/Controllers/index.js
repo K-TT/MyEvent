@@ -8,13 +8,50 @@ let User = userModel.User; // alias
 
 /* Display Home Page */
 module.exports.displayHomePage = (req, res, next) => {
-    res.render('index', {title: 'MyEvent', page: 'home'});
+    res.render('index', {title: 'MyEvent', page: 'home', username: req.user ? req.user.username : ''});
 };
 
 /* Display Login Page */
 module.exports.displayLoginPage = (req, res, next) => {
-    res.render("auth/login", { title: 'Login', page: 'login' });
-};
+  if(!req.user){
+      res.render('auth/login',
+      {
+          title:"login",
+          page:"login",
+          messages:req.flash('loginMessage'),
+          username:req.user ? req.user.username : ''
+      })
+  }
+  else
+  {
+      // redirecting
+      return res.redirect('/');
+  }
+}
+
+/* Process Login Page */
+module.exports.processLoginPage = (req, res, next) => {
+  console.log("inside processLoginPage");
+  passport.authenticate('local',
+  (err,user,info) => {
+      if(err)
+      {
+          return next(err);
+      }
+      if(!user)
+      {
+          req.flash('loginMessage','Authentication Error');
+          return res.redirect('/login');
+      }
+      req.login(user,(err) =>{
+          if(err){
+              return next(err);
+          }
+          return res.redirect('/');
+      });
+  })(req,res,next);
+  
+}
 
 /* Display Register Page */
 module.exports.displayRegisterPage = (req, res, next) => {
@@ -148,7 +185,8 @@ module.exports.displayRegisterPage = (req, res, next) => {
     });
   };
 
-  /* Display Saved Events Page */
-module.exports.displaySavedEventsPage = (req, res, next) => {
-  res.render('index', {title: 'Saved Events', page: 'savedevents'});
-};
+/* Process Logout */
+module.exports.performLogout = (req, res, next) => {
+  req.logout();
+  res.redirect('/');   
+}

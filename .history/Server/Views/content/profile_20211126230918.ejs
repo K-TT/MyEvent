@@ -1,0 +1,241 @@
+<style>
+ #location{
+
+ }
+    
+
+</style>
+
+<div class="container">
+  <div class="row">
+  
+  </div>
+
+  <form method="POST" class="mt-5 p-4 regForm">
+
+  <!-- user picturw -->
+   <input class id ="location" type="file" name="image" /><br /><br />
+
+  <!-- user bio  -->
+   <div class="form-outline mb-4 col-md-12">
+    <h4 class="text-center mb-4">About me:</h4> 
+    <br /><br />
+     <input type="text" name="userbio" id="ubio" class="form-control"></>
+     <label class="form-label" for="ubio"></label>
+    </div>
+
+
+    <!-- username input   -->
+    <div class="form-outline mb-4 col-md-12">
+      <input type="text" name="username" id="uname" class="form-control"  value="<%=username%>"></>
+        <label class="form-label" for="uname"></label>
+    </div>
+
+    <!-- Email input -->
+    <div class="form-outline mb-4 col-md-12">
+      <input type="email" name="email" id="emailAddress" class="form-control" value="<%=userModel.email%>"/> </>
+      <label class="form-label" for="emailAddress"></label>
+    </div>
+
+    <!-- 2 column grid layout with text inputs for the first and last names -->
+    <div class="row mb-4">
+      <div class="col">
+        <div class="form-outline">
+          <input type="text" name="fname" id="frstname" class="form-control" />
+          <label class="form-label" for="frstname">First Name</label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-outline">
+          <input type="text" name="lname" id="lstname" class="form-control" />
+          <label class="form-label" for="lstname">Last Name</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- City dropdown -->
+    <div class="row mb-4">
+      <div class="col ctyDropDown">
+        <select class="select ctySlctn" id="ctySelection" name="citySel">
+          <option value="Ajax">Ajax</option>
+          <option value="Brampton">Brampton</option>
+          <option value="Markham">Markham</option>
+          <option value="Mississauga">Mississauga</option>
+          <option value="Pickering">Pickering</option>
+          <option value="Scarborough">Scarborough</option>
+          <option value="Toronto">Toronto</option>
+          <option value="Vaughn">Vaughn</option>
+        </select>
+        <label class="form-label select-label">City</label>
+      </div>
+      <!-- Birthday input -->
+      <div class="col">
+        <div class="form-outline datepicker" data-mdb-format="yyyy/mm/dd" data-mdb-inline="true">
+          <input
+            type="text"
+            name="birthday"
+            class="form-control"
+            id="bdayPicker"
+          />
+          <label for="bdayPicker" class="form-label">Birthday</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Checkbox -->
+    <h4 class="text-center mb-2 pt-2">Interests</h4>
+    <div class="container cbContainer">
+      <div class="interestsCB">
+        <label for="Anime">
+          <input type="checkbox" id="Anime" name="Anime" value="Anime">
+          <span>Anime</span>
+        </label>
+      </div>
+      <div class="interestsCB">
+        <label for="Art">
+          <input type="checkbox" id="Art" name="Art" value="Art">
+          <span>Art</span>
+        </label>
+      </div>
+      <div class="interestsCB">
+        <label for="Astronomy">
+          <input type="checkbox" id="Astronomy" name="Astronomy" value="Astronomy">
+          <span>Astronomy</span>
+        </label>
+      </div>
+      <div class="interestsCB">
+        <label for="Books">
+          <input type="checkbox" id="Books" name="Books" value="Books">
+          <span>Books</span>
+        </label>
+      </div>
+      <div class="interestsCB">
+        <label for="Business">
+          <input type="checkbox" id="Business" name="Business" value="Business">
+          <span>Business</span>
+        </label>
+      </div>
+      <div class="interestsCB">
+        <label for="College">
+          <input type="checkbox" id="College" name="College" value="College">
+          <span>College</span>
+        </label>
+      </div>
+      <div class="interestsCB">
+        <label for="Cosplay">
+          <input type="checkbox" id="Cosplay" name="Cosplay" value="Cosplay">
+          <span>Cosplay</span>
+        </label>
+      </div>
+      <div class="interestsCB">
+        <label for="Couples">
+          <input type="checkbox" id="Couples" name="Couples" value="Couples">
+          <span>Couples</span>
+        </label>
+      </div>
+      <div class="interestsCB">
+        <label for="Culture">
+          <input type="checkbox" id="Culture" name="Culture" value="Culture">
+          <span>Culture</span>
+        </label>
+      </div>
+      <div class="interestsCB">
+        <label for="Gaming">
+          <input type="checkbox" id="Gaming" name="Gaming" value="Gaming">
+          <span>Gaming</span>
+        </label>
+      </div>
+      <div class="interestsCB">
+        <label for="Hiking">
+          <input type="checkbox" id="Hiking" name="Hiking" value="Hiking">
+          <span>Hiking</span>
+        </label>
+      </div>
+      <div class="interestsCB">
+        <label for="JobSeeking">
+          <input type="checkbox" id="JobSeeking" name="JobSeeking" value="JobSeeking">
+          <span>Job-Seeking</span>
+        </label>
+      </div>
+      <div class="interestsCB">
+        <label for="LGBTQA">
+          <input type="checkbox" id="LGBTQA" name="LGBTQA" value="LGBTQA">
+          <span>LGBTQA</span>
+        </label>
+      </div>
+      <div class="interestsCB">
+        <label for="LanguageExchange">
+          <input type="checkbox" id="LanguageExchange" name="LanguageExchange" value="LanguageExchange">
+          <span>Language Exchange</span>
+        </label>
+      </div>
+      <div class="interestsCB">
+        <label for="MotivationalSpeaking">
+          <input type="checkbox" id="MotivationalSpeaking" name="MotivationalSpeaking" value="MotivationalSpeaking">
+          <span>Motivational Speaking</span>
+        </label>
+      </div>
+      <div class="interestsCB">
+        <label for="Movies">
+          <input type="checkbox" id="Movies" name="Movies" value="Movies">
+          <span>Movies</span>
+        </label>
+      </div>
+      <div class="interestsCB">
+        <label for="Nature">
+          <input type="checkbox" id="Nature" name="Nature" value="Nature">
+          <span>Nature</span>
+        </label>
+      </div>
+      <div class="interestsCB">
+        <label for="Newcomers">
+          <input type="checkbox" id="Newcomers" name="Newcomers" value="Newcomers">
+          <span>Newcomers</span>
+        </label>
+      </div>
+      <div class="interestsCB">
+        <label for="Party">
+          <input type="checkbox" id="Party" name="Party" value="Party">
+          <span>Party</span>
+        </label>
+      </div>
+      <div class="interestsCB">
+        <label for="Profession">
+          <input type="checkbox" id="Profession" name="Profession" value="Profession">
+          <span>Profession</span>
+        </label>
+      </div>
+      <div class="interestsCB">
+        <label for="Recruiting">
+          <input type="checkbox" id="Recruiting" name="Recruiting" value="Recruiting">
+          <span>Recruiting</span>
+        </label>
+      </div>
+      <div class="interestsCB">
+        <label for="School">
+          <input type="checkbox" id="School" name="School" value="School">
+          <span>School</span>
+        </label>
+      </div>
+      <div class="interestsCB">
+        <label for="Singles">
+          <input type="checkbox" id="Singles" name="Singles" value="Singles">
+          <span>Singles</span>
+        </label>
+      </div>
+      <div class="interestsCB">
+        <label for="Sports">
+          <input type="checkbox" id="Sports" name="Sports" value="Sports">
+          <span>Sports</span>
+        </label>
+      </div>
+      </div>
+
+    <!-- Edit profile button -->
+    <div class="col-md-4 ms-auto me-auto pt-4">
+      <button type="submit" id="submitButton" class="btn btn-block mb-4 regBtn" value="Register">Update</button>
+    </div>
+  </form>
+</div>
+
+

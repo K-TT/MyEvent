@@ -1,0 +1,143 @@
+body {
+    background:#FEF9EF;
+  }
+
+.eventsForm {
+  background-color: #FF865E;
+  border-radius: 5px;
+  padding: 0 16px;
+}
+
+.eventsForm .form-control {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 0;
+  padding: 12px 15px;
+  color: #000;
+}
+
+.eventsForm .form-control::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #000;
+}
+
+.eventsForm .form-control::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #000;
+}
+
+.eventsForm .form-control:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #000;
+}
+
+.eventsForm .form-control:-moz-placeholder {
+  /* Firefox 18- */
+  color: #000;
+}
+
+.eventsForm .customSelect {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 0;
+  padding: 12px 15px;
+  color: #000;
+  width: 100%;
+  border-radius: 5px;
+  text-align: left;
+  height: auto;
+  background-image: none;
+}
+
+.eventsForm .customSelect option {
+  background-color: rgba(255, 134, 94, 0.5);
+}
+
+.eventsForm .customSelect:focus {
+  box-shadow: none;
+}
+
+.eventsForm .selectContainer {
+  position: relative;
+}
+
+.eventsForm .selectContainer:before {
+  position: absolute;
+  right: 15px;
+  top: calc(50% - 14px);
+  font-size: 18px;
+  color: #FEF9EF;
+  font-family: 'Helvetica', sans-serif;
+}
+
+.datePicker .dateInputCustom {
+  font-family: 'Helvetica', sans-serif;
+  background-color: #FF9E7E;
+  border: 0;
+  padding: 12px 15px;
+  color: #000;
+  width: 100%;
+  border-radius: 5px;
+  text-align: left;
+  height: auto;
+  background-image: none;
+}
+
+.filteredEvents .eventBox {
+  box-shadow: 0 0 35px 0 rgba(130, 130, 130, 0.2);
+  border-radius: 10px;
+  padding: 10px 35px;
+}
+
+ul {
+  list-style: none; 
+}
+
+.eventBox .imageHolder {
+  height: 65px;
+  width: 65px;
+  font-family: 'Helvetica', sans-serif;
+  color: #FEF9EF;
+  font-size: 22px;
+  font-weight: 700;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 65px;
+}
+
+.boxContent ul li {
+  font-weight: 600;
+  opacity: 0.75;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 5px;
+  margin-right: 15px;
+}
+
+@media (min-width: 768px) {
+  .boxContent ul li {
+    border-bottom: 0;
+    padding: 0;
+  }
+}
+
+.boxContent ul li i {
+  font-size: 20px;
+  position: relative;
+  top: 1px;
+}
+
+.eventBoxRight .btn {
+  font-family: 'Helvetica', sans-serif;
+  background-color: #FF865E;
+}
+
+.eventBoxRight .btn:hover {
+  background-color: #FF9E7E;
+  color: #FEF9EF;
+}
+
+.col-md-6 .btn:hover {
+  background-color: #FF9E7E;
+  color: #FEF9EF;
+}

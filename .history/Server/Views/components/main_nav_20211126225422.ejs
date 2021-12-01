@@ -1,0 +1,58 @@
+  <header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">MyEvent</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/"><i class="fas fa-search"></i> Find Events</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/saved-events"><i class="fas fa-heart"></i> Saved Events</a>
+          </li>
+          <li class="nav-item">
+           <% if(typeof username == 'string' && username) { %>
+            <a class="nav-link" href="/profile"><i class="fas fa-user"></i>Profile
+          </li> </a> <% } else {{%>
+            <i class="fas fa-user-circle"></i> Login
+            <% } %>
+          </a>
+
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <% if(typeof username == 'string' && username) { %>
+            <i class="bi bi-person-circle other-color"></i> <%= username %>
+          <% } else { %>
+            <i class="fas fa-user-circle"></i> Login
+            <% } %>
+          </a>
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark" aria-labelledby="navbarDropdown">
+            <% if(typeof username == 'string' && username) { %>
+            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+            <% } else { %>
+            <% if (page === "login") { %>
+            <li><a class="dropdown-item active" id="dropdownActive" href="/login">Login</a></li>
+            <% } else { %>
+            <li><a class="dropdown-item" href="/login">Login</a></li>
+            <% } %>
+            <li><hr class="dropdown-divider"></li>
+            <% if (page === "register") { %>
+            <li><a class="dropdown-item active" id="dropdownActive" href="/register">Register</a></li>
+            <% } else { %>
+            <li><a class="dropdown-item" href="/register">Register</a></li>
+            <% } %>
+            <% } %>
+          </ul>
+        </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  </header>

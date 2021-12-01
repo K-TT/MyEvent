@@ -1,0 +1,9 @@
+body {
+    background: #FEF9EF;
+    display: block;
+    overflow-x: hidden;
+}
+
+ul {
+    list-style: none;
+}
