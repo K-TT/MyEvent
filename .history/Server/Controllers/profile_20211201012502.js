@@ -8,28 +8,28 @@ let User = userModel.User; // alias
 
 /* Display Profile Page */
 module.exports.displayProfilePage = (req, res, next) => {
-    let id = req.user._id;
-  
-    User.findById(id, (err, user) => {
-      if (err) {
-        console.log(err);
-        res.end(err);
-      } else {
-       
-        res.render("auth/profile", {
-          title: "My Profile",
-          page: "profile",
-          username: req.user ? req.user.username : "",
-          user: user,
-        });
-      }
+
+    let id = req.user.id;
+
+  User.findById(id,(err, user) => {
+        if (err)
+        {
+            return console.error(err);
+        }
+        else
+        {
+            
+            res.render('index', {
+                title: 'Profile',
+                page: 'profile',
+                profile:User ,
+                username: req.user ? req.user.username : '',
+                user: user
+            });
+        }
     });
-  };
   
-  module.exports.performLogout = (req, res, next) => {
-    req.logout();
-    res.redirect("/");
-  };
+};
 
 /*Process Profile Page*/
 module.exports.processProfilePage = (req, res, next) => {
@@ -63,11 +63,12 @@ module.exports.processProfilePage = (req, res, next) => {
   
 };
 
-/*
-module.exports.displayProfileEditPage = (req, res, next) => {
+// displays edit page when user logged in
+
+module.exports.displayEditPage = (req, res, next) => {
     let id = req.params.id;
 
-    User.default.findById(id,{},{},function(err, user){
+    User.findById(id, (err, userToEdit) => {
         if(err)
         {
             console.log(err);
@@ -76,42 +77,15 @@ module.exports.displayProfileEditPage = (req, res, next) => {
         else
         {
             //show the edit view
-            res.render('index',
-                    {
-                        title: 'Edit Profile Information',
-                        page: 'profile_edit',
-                        profile: User ,
-                        user: user,
-                        displayName: req.user ? req.user.displayName : ''
-                })
+            res.render('profile/edit', {title: 'Edit Profile Information', profile: profileToEdit, 
+            displayName: req.user ? req.user.displayName : ''})
         }
     });
-}*/
+}
 
-module.exports.displayProfileEditPage = (req, res, next) => {
-    
-    let id = req.user.id;
+// process edit page if user logged in
 
-  User.findById(id,(err, user) => {
-        if (err)
-        {
-            return console.error(err);
-        }
-        else
-        {
-            res.render('profile', {
-                title: 'Profile Edit',
-                page: 'profile_edit',
-                profile:User ,
-                username: req.user ? req.user.username : '',
-                user: user
-            });
-        }
-    });
-};
-
-
-module.exports.processProfileEditPage = (req, res, next) => {
+module.exports.processEditPage = (req, res, next) => {
     let id = req.params.id
 
     let updatedUser= User({
@@ -125,7 +99,7 @@ module.exports.processProfileEditPage = (req, res, next) => {
       tags: interestSelections
     });
     
-    User.updateOne({ _id: id }, updatedUser, (err) => {
+    Business.updateOne({ _id: id }, updatedUser, (err) => {
         if(err)
         {
             console.log(err);

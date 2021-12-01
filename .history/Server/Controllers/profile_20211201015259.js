@@ -8,28 +8,28 @@ let User = userModel.User; // alias
 
 /* Display Profile Page */
 module.exports.displayProfilePage = (req, res, next) => {
-    let id = req.user._id;
-  
-    User.findById(id, (err, user) => {
-      if (err) {
-        console.log(err);
-        res.end(err);
-      } else {
-       
-        res.render("auth/profile", {
-          title: "My Profile",
-          page: "profile",
-          username: req.user ? req.user.username : "",
-          user: user,
-        });
-      }
+
+    let id = req.user.id;
+
+  User.findById(id,(err, user) => {
+        if (err)
+        {
+            return console.error(err);
+        }
+        else
+        {
+            
+            res.render('index', {
+                title: 'Profile',
+                page: 'profile',
+                profile:User ,
+                username: req.user ? req.user.username : '',
+                user: user
+            });
+        }
     });
-  };
   
-  module.exports.performLogout = (req, res, next) => {
-    req.logout();
-    res.redirect("/");
-  };
+};
 
 /*Process Profile Page*/
 module.exports.processProfilePage = (req, res, next) => {
@@ -99,8 +99,9 @@ module.exports.displayProfileEditPage = (req, res, next) => {
         }
         else
         {
-            res.render('profile', {
-                title: 'Profile Edit',
+            
+            res.render('index', {
+                title: 'Profile',
                 page: 'profile_edit',
                 profile:User ,
                 username: req.user ? req.user.username : '',

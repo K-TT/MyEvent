@@ -14,9 +14,9 @@ router.post('/profile', profileController.processProfilePage);
 
 
 /* GET Route for displaying  Edit Page - update operation */
-router.get('/profile_edit/:id', profileController.displayProfileEditPage);
+router.get('/edit/:id', requireAuth, profileController.displayEditPage);
 
-/* POST Route for processing Edit Page - update operation */
-router.post('/profile_edit/:id', profileController.processProfileEditPage);
+/* GET Route for processing Edit Page - update operation */
+router.post('/edit/:id', requireAuth, profileController.processEditPage);
 
 module.exports = router;
