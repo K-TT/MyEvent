@@ -20,16 +20,14 @@ module.exports.displayFindEventDetailPage = (req, res, next) => {
 
 /* 2021-11-29: can not use this router, because the saved event list function is still building */
 /* Display Find Event Detail Page */
-/*
-module.exports.displayFindEventDetailPage = (req, res, next) => {
+
+module.exports.processFindEventDetailPage = (req, res, next) => {
     let id=req.params.id;
     User.default.findById(id,{},{},function(err, event){
         if(err)
         {
             return console.error(err);
         }
-     Render Find Events page 
     res.render('index', { title: 'Find Event Detail', page: 'eventdetails', event: User });
     });
 };
-*/

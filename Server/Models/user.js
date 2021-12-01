@@ -1,4 +1,5 @@
 let mongoose = require('mongoose');
+let Schema = mongoose.Schema;
 let passportLocalMongoose = require('passport-local-mongoose');
 
 // Event schema
@@ -87,7 +88,10 @@ let User = mongoose.Schema(
         trim: true,
       },
       events: [eventSchema],
-      savedEvents: [eventSchema],
+      savedEvents: [{
+         type: Schema.Types.ObjectId,
+         ref: eventSchema
+      }],
       notInterestedEvents: [eventSchema],
       tags: [String],
       created: 
