@@ -1,7 +1,9 @@
 let express = require('express');
 let userModel = require("../Models/user");
 let User = userModel.User;
+let Event = userModel.Events;
 let passport = require('passport');
+const { reset } = require('nodemon');
 
 /* Display Find Events Page */
 module.exports.displayFindEventsPage = (req, res, next) => {
@@ -11,9 +13,33 @@ module.exports.displayFindEventsPage = (req, res, next) => {
             return console.error(err);
         }
     /* Render Find Events page */
-    res.render('index', { title: 'Find Events', page: 'findevents', event: User, username: req.user ? req.user.username : '' });
+    res.render('index', { title: 'Find Events', page: 'findevents', event: Event, username: req.user ? req.user.username : '' });
     });
 };
+
+/* Process Find Events Page -> Save an Event */
+module.exports.processFindEventsPage = (req, res, next) => {
+    let id = req.event._id;
+
+    let newUserEvent = User({
+        "savedEvents": id
+    })
+
+    User.create(newUserEvent, (err, User) => {
+        if(err)
+        {
+            console.log(err);
+            res.end(err);
+        }
+        else
+        {
+            console.log("Event saved");
+            res.redirect('index');
+        }
+    } )
+
+}
+
 
   /* Display Saved Events Page */
   module.exports.displaySavedEventsPage = (req, res, next) => {
