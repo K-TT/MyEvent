@@ -1,6 +1,7 @@
 let express = require('express');
 let userModel = require("../Models/user");
 let User = userModel.User;
+let passport = require('passport');
 
 /* Display Find Events Page */
 module.exports.displayFindEventsPage = (req, res, next) => {
@@ -10,7 +11,7 @@ module.exports.displayFindEventsPage = (req, res, next) => {
             return console.error(err);
         }
     /* Render Find Events page */
-    res.render('index', { title: 'Find Events', page: 'findevents', event: User });
+    res.render('index', { title: 'Find Events', page: 'findevents', event: User, username: req.user ? req.user.username : '' });
     });
 };
 

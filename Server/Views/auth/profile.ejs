@@ -1,0 +1,93 @@
+<!-- Header Section -->
+<%- include('../components/header.ejs'); %>
+
+<!-- Main Navigation Section -->
+<%- include('../components/main_nav.ejs'); %>
+
+<div class="container">
+  <div class="row">
+  <form method="POST" class="mt-5 p-4 profileForm ms-auto me-auto">
+    <h3 class="text-center mb-4">My Profile</h3>
+
+    <!-- username input -->
+    <div class="form-outline mb-4 col-md-12">
+      <input type="text" name="username" id="uname" class="form-control" value="<%= user.username %>" />
+      <label class="form-label" for="uname">Username</label>
+    </div>
+
+    <!-- password input -->
+    <div class="form-outline mb-4 col-md-12">
+      <input type="password" name="password" id="pwd1" class="form-control" />
+      <label class="form-label" for="pwd1">Password</label>
+    </div>
+
+    <!-- Email input -->
+    <div class="form-outline mb-4 col-md-12">
+      <input type="email" name="email" id="emailAddress" class="form-control" value="<%= user.email %>" />
+      <label class="form-label" for="emailAddress">Email</label>
+    </div>
+
+    <!-- 2 column grid layout with text inputs for the first and last names -->
+    <div class="row mb-4">
+      <div class="col">
+        <div class="form-outline">
+          <input type="text" name="fname" id="frstname" class="form-control" value="<%= user.firstName %>" />
+          <label class="form-label" for="frstname">First Name</label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-outline">
+          <input type="text" name="lname" id="lstname" class="form-control" value="<%= user.lastName %>" />
+          <label class="form-label" for="lstname">Last Name</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- City dropdown -->
+    <div class="row mb-4">
+      <div class="col ctyDropDown">
+        <select class="select ctySlctn" id="ctySelection" name="citySel">
+          <option selected><%= user.city %></option>
+          <option value="Ajax">Ajax</option>
+          <option value="Brampton">Brampton</option>
+          <option value="Markham">Markham</option>
+          <option value="Mississauga">Mississauga</option>
+          <option value="Pickering">Pickering</option>
+          <option value="Scarborough">Scarborough</option>
+          <option value="Toronto">Toronto</option>
+          <option value="Vaughn">Vaughn</option>
+        </select>
+        <label class="form-label select-label">City</label>
+      </div>
+
+      <% let bdayYear = user.birthday.getFullYear().toString(); %>
+      <% let bdayMonth = (user.birthday.getMonth() + 1).toString().padStart(2, "0"); %>
+      <% let bdayDay = user.birthday.getDate().toString().padStart(2, "0"); %>
+
+      <!-- Birthday input -->
+      <div class="col">
+        <div class="form-outline datepicker" data-mdb-format="yyyy/mm/dd" data-mdb-inline="true">
+          <input
+            type="text"
+            name="birthday"
+            class="form-control"
+            id="bdayPicker"
+            value="<%= bdayYear %>/<%= bdayMonth  %>/<%= bdayDay %>" 
+          />
+          <label for="bdayPicker" class="form-label">Birthday</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Update button -->
+    <div class="col-md-4 ms-auto me-auto pt-4">
+      <button type="submit" id="updateButton" class="btn btn-block mb-4 updateBtn" value="Update">Update</button>
+    </div>
+    </form>
+    </div>
+
+<!-- Bottom Navigation Section -->
+<%- include('../components/bottom_nav.ejs'); %>
+
+<!-- JavaScript Section -->
+<%- include('../components/footer.ejs'); %>

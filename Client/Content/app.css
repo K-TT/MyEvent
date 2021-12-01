@@ -8,10 +8,13 @@ body {
       color: #2E8BC0;
   }
 
-/* Start Home Page */
+/* Start Main Navigation */
 
+.navbar-custom-invisible {
+    background-color: rgba(33, 33, 33, 0.0);
+  }
 
-/* End Home Page */
+/* End Main Navigation */
 
 /* Start login page */
 #font{
@@ -88,6 +91,7 @@ h1 {
 .regForm {
     background-color: #FEE440;
     border-radius: 10px;
+    
 }
 
 .regForm .form-control {
@@ -97,10 +101,6 @@ h1 {
 
 .regForm .select {
     border: none;
-}
-
-.regForm .ctyDropDown {
-    background-color: white;
 }
 
 .regForm .regBtn {
@@ -274,3 +274,32 @@ h1 {
 }
 
   /* End Find Events page */
+
+  /* Start Profile page */
+
+  .profileForm {
+    background-color: #FEE440;
+    border-radius: 10px;
+    width: 80%;
+  }
+
+  .profileForm .form-control {
+    background-color: white;
+    border: none;
+}
+
+.profileForm .select {
+    border: none;
+}
+
+.profileForm .updateBtn {
+    background-color: #FF865E;
+    color: white;
+    font-size: medium;
+}
+
+.select-input.form-control[readonly]:not([disabled]) {
+    background-color: white;
+}
+
+  /* End Profile Page */

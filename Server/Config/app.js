@@ -22,7 +22,6 @@ let flash = require('connect-flash');
 // Attach Router files
 let indexRouter = require('../Routes/index');
 let eventsRouter = require('../Routes/events');
-let usersRouter = require('../Routes/users');
 let profileRouter = require('../Routes/profile');
 let eventdetailsRouter = require('../Routes/eventdetails');
 
@@ -83,7 +82,6 @@ passport.deserializeUser(User.deserializeUser());
 // Routes
 app.use('/', indexRouter);
 app.use('/events', eventsRouter);
-app.use("/users", usersRouter);
 app.use("/profile", profileRouter);
 app.use('/eventdetails',eventdetailsRouter);
 

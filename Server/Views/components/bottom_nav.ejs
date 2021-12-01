@@ -1,7 +1,15 @@
-  <footer>
-  <nav class="navbar fixed-bottom navbar-dark bg-dark">
-    <div class="container-fluid">
-      <small class="navbar-text me-auto ms-auto">Copyright&nbsp;&copy;&nbsp;2021 MyEvent</small>
+  <% if(page==="home") { %>
+    <footer class="bg-light text-center text-lg-start sticky-bottom">
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: #181818; color: white;">
+      <small>Copyright&nbsp;&copy;&nbsp;2021 MyEvent</small>
+      </div>
+    </footer>
+    <% } else { %>
+  <footer class="bg-light text-center text-lg-start fixed-bottom">
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: #181818; color: white;">
+    <small>Copyright&nbsp;&copy;&nbsp;2021 MyEvent</small>
     </div>
-  </nav>
   </footer>
+  <% } %>
