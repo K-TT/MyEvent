@@ -135,26 +135,18 @@ module.exports.processFindEventsPage = (req, res, next) => {
   
   /* Display Event Details Page */
   /*Display the details of the event by click detail button in the saved-event page  */
-      
-  module.exports.displayFindEventDetailPage=(req,res,next)=>{
-    if (req.user == null)
-    {
-        return res.redirect('/login');
-    }
+
+  module.exports.displayFindEventDetailPage = (req, res, next) => {
     let id = req.params.id;
-   Event.findById(id,(err, event)=>{
-       if(err)
-       {
-           console.log(err);
-           res.end(err);
-       }
-       else{
-       res.render('index',{title:'Find Event detail',page:'eventdetails',username:res.user? res.User.username:'', events:event});
-
-       }
-
-   })
-    
+    Event.findById(id,{},{},function(err, events){
+        if(err)
+        {
+            console.error(err);
+            res.end(err);
+        }
+    /* Render the eventdetails page */
+    res.render('index', { title: 'Find Event Detail', page: 'eventdetails', events:events });
+    });
 };
 
 

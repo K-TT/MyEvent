@@ -142,14 +142,14 @@ module.exports.processFindEventsPage = (req, res, next) => {
         return res.redirect('/login');
     }
     let id = req.params.id;
-   Event.findById(id,(err, event)=>{
+   Event.findById(id,(err, events)=>{
        if(err)
        {
            console.log(err);
            res.end(err);
        }
        else{
-       res.render('index',{title:'Find Event detail',page:'eventdetails',username:res.user? res.User.username:'', events:event});
+       res.render('index',{title:'Find Event detail',page:'eventdetails',username:res.user? res.User.username:'', events:events})
 
        }
 
