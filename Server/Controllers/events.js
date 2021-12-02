@@ -1,7 +1,8 @@
 let express = require('express');
 let userModel = require("../Models/user");
 let User = userModel.User;
-let Event = userModel.Events;
+let eventModel = require("../Models/event");
+let Event = eventModel.eventSchema;
 let passport = require('passport');
 const { reset } = require('nodemon');
 
@@ -51,7 +52,7 @@ module.exports.processFindEventsPage = (req, res, next) => {
     
     let id = req.user.id;
 
-    User.findById(id, (err, user) => {
+    /*User.findById(id, (err, user) => {
         if (err)
         {
             console.log(err);
@@ -68,10 +69,69 @@ module.exports.processFindEventsPage = (req, res, next) => {
                 user: user // send the user object to the page
             }); 
         }
-    });
+    });*/
+
+    Event.find({}, function(err, events)
+    {
+        res.render('index',
+        {
+            title: 'Saved Events',
+            page: 'savedevents',
+            username: req.user ? req.user.username : '',
+            events: events
+        })
+    })
 
   };
 
+  /* Process Saved Events Page */
+  module.exports.processSavedEventsPage = (req, res, next) => {
+    // redirect users to the login page if they are not logged in
+    if (req.user == null)
+    {
+        return res.redirect('/login');
+    }
+
+    let eventCity = req.body.eventCitySelection;
+    let eventPrice = req.body.eventPriceSelection;
+    
+    Event.find({}, function(err, events)
+    {
+        let matchingEvents = new Array();
+        let price; // to check if event is paid or not
+
+        // if the selections are empty then show all events
+        if (eventCity === "" && eventPrice === "")
+        {
+            matchingEvents = events;
+        }
+        // if selections are not empty then find events with matching parameters
+        else
+        {
+            events.forEach(event => {
+                if (event.price === 0) {
+                    price = 'Free'
+                }
+                else { 
+                    price = 'Paid'
+                }
+
+                if ((eventCity === "" || event.city === eventCity) && (eventPrice === "" || price === eventPrice)) {
+                    matchingEvents.push(event);
+                }
+            })
+        }
+ 
+        res.render('index',
+        {
+            title: 'Saved Events',
+            page: 'savedevents',
+            username: req.user ? req.user.username : '',
+            events: matchingEvents
+        })
+    })
+
+  };
   
   /* Display Event Details Page */
   module.exports.displayEventDetailsPage = (req, res, next) => {

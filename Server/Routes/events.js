@@ -11,6 +11,9 @@ router.get('/', eventsController.displayFindEventsPage);
 // /events/saved-events
 router.get('/saved-events', eventsController.displaySavedEventsPage);
 
+/* POST - Process register page */
+router.post('/saved-events', eventsController.processSavedEventsPage);
+
 /* GET Event Details page */
 router.get('/event-details', eventsController.displayEventDetailsPage);
 

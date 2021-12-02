@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-lg-10 mx-auto">
 
-                <form action="#" class="eventsForm mb-60">
+                <form action="/events/saved-events" method="post" class="eventsForm mb-60">
                     <div class="row">
                         <div class="col-md-6 col-lg-3 my-3">
                             <div class="input-group position-relative">
@@ -22,8 +22,8 @@
                         </div>
                         <div class="col-md-6 col-lg-3 my-3">
                             <div class="selectContainer">
-                                <select class="customSelect">
-                                    <option selected>Select Location</option>
+                                <select class="customSelect" name="eventCitySelection" id="eventCitySelection">
+                                    <option value="" selected>Select Location</option>
                                     <option value="Ajax">Ajax</option>
                                     <option value="Brampton">Brampton</option>
                                     <option value="Guelph">Guelph</option>
@@ -44,8 +44,8 @@
                         </div>
                         <div class="col-md-6 col-lg-3 my-3">
                             <div class="selectContainer">
-                                <select class="customSelect">
-                                    <option selected>Free or Paid Event?</option>
+                                <select class="customSelect" name="eventPriceSelection" id="eventPriceSelection">
+                                    <option value="" selected>Free or Paid Event?</option>
                                     <option value="Free">Free</option>
                                     <option value="Paid">Paid</option>
                                 </select>
@@ -59,7 +59,7 @@
                         </div>
 
                         <div class="col-md-6 col-lg-3 my-3">
-                            <button type="button" class="btn btn-lg btn-block btn-light btn-custom" id="searchButton">
+                            <button type="submit" class="btn btn-lg btn-block btn-light btn-custom" id="searchButton">
                                 Search
                             </button>
                         </div>
@@ -68,8 +68,7 @@
 
                 <div class="filteredEvents">
 
-
-                    <%user.events.forEach(userEvent=> {%>
+                    <%events.forEach(event => {%>
                         <div class="eventBox d-md-flex align-items-center justify-content-between mb-30">
                             <div class="eventBoxLeft my-4 d-md-flex align-items-center flex-wrap">
                                 <img src="https://via.placeholder.com/80"
@@ -77,20 +76,20 @@
                                     alt="Event Photo" />
                                 <div class="boxContent">
                                     <h5 class="text-center text-md-left">
-                                        <%=userEvent.eventName%>
+                                        <%=event.eventName%>
                                     </h5>
                                     <ul class="d-md-flex flex-wrap text-capitalize ff-open-sans">
                                         <li class="mr-md-4">
                                             <i class="zmdi zmdi-pin mr-2"></i>
-                                            <%=userEvent.city%>
+                                            <%=event.city%>
                                         </li>
                                         <li class="mr-md-4">
                                             <i class="zmdi zmdi-money mr-2"></i>
-                                            <%=userEvent.price%>
+                                            <%=event.price%>
                                         </li>
                                         <li class="mr-md-4">
                                             <i class="zmdi zmdi-calendar"></i>
-                                            <%=userEvent.eventStartTime.toDateString()%>
+                                            <%=event.eventStartTime.toDateString()%>
                                         </li>
                                     </ul>
                                 </div>
