@@ -67,7 +67,7 @@ section p {
 }
 
 #intro2 .card {
-  border: 1;
+    border: 1;
   border-radius: 30px;
   box-shadow: 11px 7px 16px #f0e294;
   margin-bottom: 100px;
@@ -81,20 +81,13 @@ section p {
   width: 50px;
   height: 50px;
   margin-bottom: 20px;
+  background-color: coral;
 }
 
 #intro2 .icon {
   width: 50px;
   height: 50px;
   margin-bottom: 20px;
-}
-
-#box {
-  border: 1;
-  border-radius: 30px;
-  text-align: center;
-  margin: 20px;
-  background-color: white;
 }
 
 .carousel-item {

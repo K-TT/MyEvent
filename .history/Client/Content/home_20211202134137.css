@@ -66,11 +66,32 @@ section p {
   margin: 20px;
 }
 
+#intro2 .col {
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
+}
+
+#intro2 .img-col {
+  justify-content: flex-end;
+  margin-top: 100px;
+}
+
+#intro2 img {
+  max-width: 130% !important;
+  width: 130%;
+}
+
 #intro2 .card {
   border: 1;
   border-radius: 30px;
-  box-shadow: 11px 7px 16px #f0e294;
-  margin-bottom: 100px;
+  text-align: center;
+  margin: 200px;
+}
+#intro2 .icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 20px;
 }
 
 #intro .card:hover {
@@ -81,20 +102,6 @@ section p {
   width: 50px;
   height: 50px;
   margin-bottom: 20px;
-}
-
-#intro2 .icon {
-  width: 50px;
-  height: 50px;
-  margin-bottom: 20px;
-}
-
-#box {
-  border: 1;
-  border-radius: 30px;
-  text-align: center;
-  margin: 20px;
-  background-color: white;
 }
 
 .carousel-item {
