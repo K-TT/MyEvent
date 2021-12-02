@@ -1,7 +1,7 @@
 let mongoose = require('mongoose');
 
 // Event schema
-let eventSchema = new mongoose.Schema({
+let eventSchema = mongoose.Schema({
     eventName: 
     {
         type:String,

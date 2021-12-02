@@ -15,9 +15,6 @@ module.exports.displayProfilePage = (req, res, next) => {
         console.log(err);
         res.end(err);
       } else {
-        let userInterests = user.tags;
-        console.log(userInterests);
-       
         res.render("auth/profile", {
           title: "My Profile",
           page: "profile",
@@ -35,20 +32,97 @@ module.exports.displayProfilePage = (req, res, next) => {
 
 /*Process Profile Page*/
 module.exports.processProfilePage = (req, res, next) => {
-    let id = req.params.id
-    let newUser = new User({
+  let id = req.user.id
 
-       _id : id, 
-      username: req.body.username.toLowerCase(),
-      email: req.body.email,
-      firstName: req.body.fname,
-      lastName: req.body.lname,
-      city: req.body.citySel,
-      birthday: req.body.birthday,
-      tags: interestSelections
+  // Get interest selections
+  let interestSelections = [];
+
+  if (req.body.Anime) {
+    interestSelections.push(req.body.Anime);
+  } 
+  if (req.body.Art) {
+    interestSelections.push(req.body.Art);
+  }
+  if (req.body.Astronomy) {
+    interestSelections.push(req.body.Astronomy);
+  }
+  if (req.body.Books) {
+    interestSelections.push(req.body.Books);
+  }
+  if (req.body.Business) {
+    interestSelections.push(req.body.Business);
+  }
+  if (req.body.College) {
+    interestSelections.push(req.body.College);
+  }
+  if (req.body.Cosplay) {
+    interestSelections.push(req.body.Cosplay);
+  }
+  if (req.body.Couples) {
+    interestSelections.push(req.body.Couples);
+  }
+  if (req.body.Culture) {
+    interestSelections.push(req.body.Culture);
+  }
+  if (req.body.Gaming) {
+    interestSelections.push(req.body.Gaming);
+  }
+  if (req.body.Hiking) {
+    interestSelections.push(req.body.Hiking);
+  }
+  if (req.body.JobSeeking) {
+    interestSelections.push(req.body.JobSeeking);
+  }
+  if (req.body.LGBTQA) {
+    interestSelections.push(req.body.LGBTQA);
+  }
+  if (req.body.LanguageExchange) {
+    interestSelections.push(req.body.LanguageExchange);
+  }
+  if (req.body.MotivationalSpeaking) {
+    interestSelections.push(req.body.MotivationalSpeaking);
+  }
+  if (req.body.Movies) {
+    interestSelections.push(req.body.Movies);
+  }
+  if (req.body.Nature) {
+    interestSelections.push(req.body.Nature);
+  }
+  if (req.body.Newcomers) {
+    interestSelections.push(req.body.Newcomers);
+  }
+  if (req.body.Party) {
+    interestSelections.push(req.body.Party);
+  }
+  if (req.body.Profession) {
+    interestSelections.push(req.body.Profession);
+  }
+  if (req.body.Recruiting) {
+    interestSelections.push(req.body.Recruiting);
+  }
+  if (req.body.School) {
+    interestSelections.push(req.body.School);
+  }
+  if (req.body.Singles) {
+    interestSelections.push(req.body.Singles);
+  }
+  if (req.body.Sports) {
+    interestSelections.push(req.body.Sports);
+  }
+
+    
+    let updatedUser = new User({
+       "_id" : id, 
+      "username": req.body.username.toLowerCase(),
+      "email": req.body.email,
+      "firstName": req.body.fname,
+      "lastName": req.body.lname,
+      "city": req.body.citySel,
+      "birthday": req.body.birthday,
+      "tags": interestSelections
     });
   
-  User.create(newUser, (err, User) =>{
+  User.updateOne({_id: id}, updatedUser, {}, (err) =>{
         if(err)
         {
             console.log(err);
@@ -56,9 +130,7 @@ module.exports.processProfilePage = (req, res, next) => {
         }
         else
         {
-            
-            res.redirect('profile');
-
+            res.redirect('/profile');
         }
     });
   

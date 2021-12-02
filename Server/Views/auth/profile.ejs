@@ -85,8 +85,7 @@
         </div>
       </div>
     </div>
-
-    <!-- Create interests array -->
+    
     
 
     <!-- Checkbox -->
@@ -94,159 +93,285 @@
     <div class="container cbContainer">
       <div class="interestsCB">
         <label for="Anime">
+          <% for (let i = 0; i < user.tags.length; i++) { %>
+          <% if(user.tags[i] === "Anime") { %>
+            <input type="checkbox" id="Anime" name="Anime" value="Anime" class="cbInterest" checked>
+            <% } %>
+            <% } %>
           <input type="checkbox" id="Anime" name="Anime" value="Anime" class="cbInterest">
           <span>Anime</span>
         </label>
       </div>
       <div class="interestsCB">
         <label for="Art">
+          <% for (let i = 0; i < user.tags.length; i++) { %>
+          <% if(user.tags[i] === "Art") { %>
+            <input type="checkbox" id="Art" name="Art" value="Art" class="cbInterest" checked>
+            <% } %>
+            <% } %>
           <input type="checkbox" id="Art" name="Art" value="Art" class="cbInterest">
           <span>Art</span>
         </label>
       </div>
       <div class="interestsCB">
         <label for="Astronomy">
+          <% for (let i = 0; i < user.tags.length; i++) { %>
+            <% if(user.tags[i] === "Astronomy") { %>
+              <input type="checkbox" id="Astronomy" name="Astronomy" value="Astronomy" class="cbInterest" checked>
+              <% } %>
+              <% } %>
           <input type="checkbox" id="Astronomy" name="Astronomy" value="Astronomy" class="cbInterest">
           <span>Astronomy</span>
         </label>
       </div>
       <div class="interestsCB">
         <label for="Books">
+          <% for (let i = 0; i < user.tags.length; i++) { %>
+            <% if(user.tags[i] === "Books") { %>
+              <input type="checkbox" id="Books" name="Books" value="Books" class="cbInterest" checked>
+              <% } %>
+              <% } %>
           <input type="checkbox" id="Books" name="Books" value="Books" class="cbInterest">
           <span>Books</span>
         </label>
       </div>
       <div class="interestsCB">
         <label for="Business">
+          <% for (let i = 0; i < user.tags.length; i++) { %>
+            <% if(user.tags[i] === "Business") { %>
+              <input type="checkbox" id="Business" name="Business" value="Business" class="cbInterest" checked>
+              <% } %>
+              <% } %>
           <input type="checkbox" id="Business" name="Business" value="Business" class="cbInterest">
           <span>Business</span>
         </label>
       </div>
       <div class="interestsCB">
         <label for="College">
+          <% for (let i = 0; i < user.tags.length; i++) { %>
+            <% if(user.tags[i] === "College") { %>
+              <input type="checkbox" id="College" name="College" value="College" class="cbInterest" checked>
+              <% } %>
+              <% } %>
           <input type="checkbox" id="College" name="College" value="College" class="cbInterest">
           <span>College</span>
         </label>
       </div>
       <div class="interestsCB">
         <label for="Cosplay">
+          <% for (let i = 0; i < user.tags.length; i++) { %>
+            <% if(user.tags[i] === "Cosplay") { %>
+              <input type="checkbox" id="Cosplay" name="Cosplay" value="Cosplay" class="cbInterest" checked>
+              <% } %>
+              <% } %>
           <input type="checkbox" id="Cosplay" name="Cosplay" value="Cosplay" class="cbInterest">
           <span>Cosplay</span>
         </label>
       </div>
       <div class="interestsCB">
         <label for="Couples">
+          <% for (let i = 0; i < user.tags.length; i++) { %>
+            <% if(user.tags[i] === "Couples") { %>
+              <input type="checkbox" id="Couples" name="Couples" value="Couples" class="cbInterest" checked>
+              <% } %>
+              <% } %>
           <input type="checkbox" id="Couples" name="Couples" value="Couples" class="cbInterest">
           <span>Couples</span>
         </label>
       </div>
       <div class="interestsCB">
         <label for="Culture">
+          <% for (let i = 0; i < user.tags.length; i++) { %>
+            <% if(user.tags[i] === "Culture") { %>
+              <input type="checkbox" id="Culture" name="Culture" value="Culture" class="cbInterest" checked>
+              <% } %>
+              <% } %>
           <input type="checkbox" id="Culture" name="Culture" value="Culture" class="cbInterest">
           <span>Culture</span>
         </label>
       </div>
       <div class="interestsCB">
         <label for="Gaming">
+          <% for (let i = 0; i < user.tags.length; i++) { %>
+            <% if(user.tags[i] === "Gaming") { %>
+              <input type="checkbox" id="Gaming" name="Gaming" value="Gaming" class="cbInterest" checked>
+              <% } %>
+              <% } %>
           <input type="checkbox" id="Gaming" name="Gaming" value="Gaming" class="cbInterest">
           <span>Gaming</span>
         </label>
       </div>
       <div class="interestsCB">
         <label for="Hiking">
+          <% for (let i = 0; i < user.tags.length; i++) { %>
+            <% if(user.tags[i] === "Hiking") { %>
+              <input type="checkbox" id="Hiking" name="Hiking" value="Hiking" class="cbInterest" checked>
+              <% } %>
+              <% } %>
           <input type="checkbox" id="Hiking" name="Hiking" value="Hiking" class="cbInterest">
           <span>Hiking</span>
         </label>
       </div>
       <div class="interestsCB">
         <label for="JobSeeking">
+          <% for (let i = 0; i < user.tags.length; i++) { %>
+            <% if(user.tags[i] === "JobSeeking") { %>
+              <input type="checkbox" id="JobSeeking" name="JobSeeking" value="JobSeeking" class="cbInterest" checked>
+              <% } %>
+              <% } %>
           <input type="checkbox" id="JobSeeking" name="JobSeeking" value="JobSeeking" class="cbInterest">
           <span>Job-Seeking</span>
         </label>
       </div>
       <div class="interestsCB">
         <label for="LGBTQA">
+          <% for (let i = 0; i < user.tags.length; i++) { %>
+            <% if(user.tags[i] === "LGBTQA") { %>
+              <input type="checkbox" id="LGBTQA" name="LGBTQA" value="LGBTQA" class="cbInterest" checked>
+              <% } %>
+              <% } %>
           <input type="checkbox" id="LGBTQA" name="LGBTQA" value="LGBTQA" class="cbInterest">
           <span>LGBTQA</span>
         </label>
       </div>
       <div class="interestsCB">
         <label for="LanguageExchange">
+          <% for (let i = 0; i < user.tags.length; i++) { %>
+            <% if(user.tags[i] === "LanguageExchange") { %>
+              <input type="checkbox" id="LanguageExchange" name="LanguageExchange" value="LanguageExchange" class="cbInterest" checked>
+              <% } %>
+              <% } %>
           <input type="checkbox" id="LanguageExchange" name="LanguageExchange" value="LanguageExchange" class="cbInterest">
           <span>Language Exchange</span>
         </label>
       </div>
       <div class="interestsCB">
         <label for="MotivationalSpeaking">
+          <% for (let i = 0; i < user.tags.length; i++) { %>
+            <% if(user.tags[i] === "MotivationalSpeaking") { %>
+              <input type="checkbox" id="MotivationalSpeaking" name="MotivationalSpeaking" value="MotivationalSpeaking" class="cbInterest" checked>
+              <% } %>
+              <% } %>
           <input type="checkbox" id="MotivationalSpeaking" name="MotivationalSpeaking" value="MotivationalSpeaking" class="cbInterest">
           <span>Motivational Speaking</span>
         </label>
       </div>
       <div class="interestsCB">
         <label for="Movies">
+          <% for (let i = 0; i < user.tags.length; i++) { %>
+            <% if(user.tags[i] === "Movies") { %>
+              <input type="checkbox" id="Movies" name="Movies" value="Movies" class="cbInterest" checked>
+              <% } %>
+              <% } %>
           <input type="checkbox" id="Movies" name="Movies" value="Movies" class="cbInterest">
           <span>Movies</span>
         </label>
       </div>
       <div class="interestsCB">
         <label for="Nature">
+          <% for (let i = 0; i < user.tags.length; i++) { %>
+            <% if(user.tags[i] === "Nature") { %>
+              <input type="checkbox" id="Nature" name="Nature" value="Nature" class="cbInterest" checked>
+              <% } %>
+              <% } %>
           <input type="checkbox" id="Nature" name="Nature" value="Nature" class="cbInterest">
           <span>Nature</span>
         </label>
       </div>
       <div class="interestsCB">
         <label for="Newcomers">
+          <% for (let i = 0; i < user.tags.length; i++) { %>
+            <% if(user.tags[i] === "Newcomers") { %>
+              <input type="checkbox" id="Newcomers" name="Newcomers" value="Newcomers" class="cbInterest" checked>
+              <% } %>
+              <% } %>
           <input type="checkbox" id="Newcomers" name="Newcomers" value="Newcomers" class="cbInterest">
           <span>Newcomers</span>
         </label>
       </div>
       <div class="interestsCB">
         <label for="Party">
+          <% for (let i = 0; i < user.tags.length; i++) { %>
+            <% if(user.tags[i] === "Party") { %>
+              <input type="checkbox" id="Party" name="Party" value="Party" class="cbInterest" checked>
+              <% } %>
+              <% } %>
           <input type="checkbox" id="Party" name="Party" value="Party" class="cbInterest">
           <span>Party</span>
         </label>
       </div>
       <div class="interestsCB">
         <label for="Profession">
+          <% for (let i = 0; i < user.tags.length; i++) { %>
+            <% if(user.tags[i] === "Profession") { %>
+              <input type="checkbox" id="Profession" name="Profession" value="Profession" class="cbInterest" checked>
+              <% } %>
+              <% } %>
           <input type="checkbox" id="Profession" name="Profession" value="Profession" class="cbInterest">
           <span>Profession</span>
         </label>
       </div>
       <div class="interestsCB">
         <label for="Recruiting">
+          <% for (let i = 0; i < user.tags.length; i++) { %>
+            <% if(user.tags[i] === "Recruiting") { %>
+              <input type="checkbox" id="Recruiting" name="Recruiting" value="Recruiting" class="cbInterest" checked>
+              <% } %>
+              <% } %>
           <input type="checkbox" id="Recruiting" name="Recruiting" value="Recruiting" class="cbInterest">
           <span>Recruiting</span>
         </label>
       </div>
       <div class="interestsCB">
         <label for="School">
+          <% for (let i = 0; i < user.tags.length; i++) { %>
+            <% if(user.tags[i] === "School") { %>
+              <input type="checkbox" id="School" name="School" value="School" class="cbInterest" checked>
+              <% } %>
+              <% } %>
           <input type="checkbox" id="School" name="School" value="School" class="cbInterest">
           <span>School</span>
         </label>
       </div>
       <div class="interestsCB">
         <label for="Singles">
+          <% for (let i = 0; i < user.tags.length; i++) { %>
+            <% if(user.tags[i] === "Singles") { %>
+              <input type="checkbox" id="Singles" name="Singles" value="Singles" class="cbInterest" checked>
+              <% } %>
+              <% } %>
           <input type="checkbox" id="Singles" name="Singles" value="Singles" class="cbInterest">
           <span>Singles</span>
         </label>
       </div>
       <div class="interestsCB">
         <label for="Sports">
+          <% for (let i = 0; i < user.tags.length; i++) { %>
+            <% if(user.tags[i] === "Sports") { %>
+              <input type="checkbox" id="Sports" name="Sports" value="Sports" class="cbInterest" checked>
+              <% } %>
+              <% } %>
           <input type="checkbox" id="Sports" name="Sports" value="Sports" class="cbInterest">
           <span>Sports</span>
         </label>
       </div>
       </div>
 
+
     <!-- Update button -->
-    <div class="col-md-4 ms-auto me-auto pt-4">
-      <button type="submit" id="updateButton" class="btn btn-block mb-4 updateBtn" value="Update">Update</button>
+    <div class="row">
+      <div class="col-md-6"></div>
+    <div class="col-md-6 text-end pt-4 upBtn">
+      <button type="submit" id="updateButton" class="btn mb-4 updateBtn" value="Update">Update</button>
     </div>
+    
+  </div>
     </form>
     </div>
 
 <!-- Bottom Navigation Section -->
 <%- include('../components/bottom_nav.ejs'); %>
+
 
 <!-- JavaScript Section -->
 <%- include('../components/footer.ejs'); %>

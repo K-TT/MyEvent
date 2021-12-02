@@ -6,11 +6,8 @@ let profileController = require('../Controllers/profile');
 /* GET Profile page */
 router.get('/', profileController.displayProfilePage);
 
-/* GET Profile page */
-router.get('/profile', profileController.displayProfilePage);
-
 /* POST Profile page */
-router.post('/profile', profileController.processProfilePage);
+router.post('/', profileController.processProfilePage);
 
 
 module.exports = router;
