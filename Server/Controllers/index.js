@@ -57,7 +57,7 @@ module.exports.processLoginPage = (req, res, next) => {
 module.exports.displayRegisterPage = (req, res, next) => {
     if (!req.user) {
       res.render("auth/register", {
-        title: "Register",
+        title: "Sign Up",
         page: "register",
         messages: req.flash("registerMessage"),
         username: req.user ? req.user.username : "",
