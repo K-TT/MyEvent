@@ -17,21 +17,23 @@
   </div> 
     
     <div class="eventTime">
-    <h6>Event Start Time: <%=events.eventStartTime.toDateString()%></h6>
-     <h6>Event End Time: <%=events.eventEndTime.toDateString()%></h6>
+    <h6>Event Start Time: <%=events.eventStartTime%></h6>
+     <h6>Event End Time: <%=events.eventEndTime%></h6>
   </div>
 
  <div class="price">
     <h6>Price: <%= events.price%></h6>
   </div>
 
-  <div class="tags">
-    <h6>Tags:<%= events.tags%></h6>
-  </div>  
-
    <div class="descriptionContainer">
     <h6> <%= events.description%></h6>
   </div>
+
+
+  <div class="tags">
+    <h6><%= events.tags%></h6>
+  </div>  
+
 
 </div>
 </div>

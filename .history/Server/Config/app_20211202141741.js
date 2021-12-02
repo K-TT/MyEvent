@@ -73,7 +73,7 @@ let userModel = require('../Models/user');
 let User = userModel.User;
 let eventModel = require("../Models/event");
 let Event = eventModel.eventSchema;
-
+l
 
 // Implement a User authentication strategy
 passport.use(User.createStrategy());
@@ -86,7 +86,6 @@ passport.deserializeUser(User.deserializeUser());
 app.use('/', indexRouter);
 app.use('/events', eventsRouter);
 app.use("/profile", profileRouter);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

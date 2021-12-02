@@ -71,9 +71,6 @@ app.use(passport.session());
 // Create user model instance
 let userModel = require('../Models/user');
 let User = userModel.User;
-let eventModel = require("../Models/event");
-let Event = eventModel.eventSchema;
-
 
 // Implement a User authentication strategy
 passport.use(User.createStrategy());
@@ -86,7 +83,7 @@ passport.deserializeUser(User.deserializeUser());
 app.use('/', indexRouter);
 app.use('/events', eventsRouter);
 app.use("/profile", profileRouter);
-
+app.use('/eventdetails',eventdetailsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
