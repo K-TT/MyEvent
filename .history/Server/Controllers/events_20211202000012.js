@@ -135,9 +135,14 @@ module.exports.processFindEventsPage = (req, res, next) => {
   
   /* Display Event Details Page */
   /*Display the details of the event by click detail button in the saved-event page  */
+  /*
+  module.exports.displayEventDetailsPage = (req, res, next) => {
+    res.render('index', {title: 'Event Details', page: 'eventdetails'});
+  };
+  */
 
   module.exports.displayFindEventDetailPage = (req, res, next) => {
-    let id = req.event.id;
+    let id = req.event._id;
     Event.default.findById(id,{},{},function(err, event){
         if(err)
         {
