@@ -137,37 +137,3 @@ module.exports.processFindEventsPage = (req, res, next) => {
   module.exports.displayEventDetailsPage = (req, res, next) => {
     res.render('index', {title: 'Event Details', page: 'eventdetails'});
   };
-
-
-
-  /* below data is from eventdetails.js file
-  /* Display Find aEvent detail Page */
-  /*
-module.exports.displayFindEventDetailPage = (req, res, next) => {
-    User.find(function(err, event){
-        if(err)
-        {
-            return console.error(err);
-        }
-    //Render Find Events page 
-    res.render('index', { title: 'Find Event detail', page: 'eventdetails', event: User });
-    });
-};
-
-
-
-
-
-//Display Find Event Detail Page //
-
-module.exports.processFindEventDetailPage = (req, res, next) => {
-    let id=req.params.id;
-    User.default.findById(id,{},{},function(err, event){
-        if(err)
-        {
-            return console.error(err);
-        }
-    res.render('index', { title: 'Find Event Detail', page: 'eventdetails', event: User });
-    });
-};
-*/
