@@ -20,7 +20,7 @@ module.exports.displayFindEventsPage = (req, res, next) => {
 
 /* Process Find Events Page -> Save an Event */
 module.exports.processFindEventsPage = (req, res, next) => {
-    let id = req.event._id;
+    let id = req.params.id;
 
     let newUserEvent = User({
         "savedEvents": id
