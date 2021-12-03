@@ -1,0 +1,35 @@
+body {
+    background: #FEF9EF;
+    overflow-x: hidden;
+    font-family: "Poppins", sans-serif;
+}
+
+h1 {
+    color: #285fa8;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#FindEventsCarousel {
+    background-color: rgba(0, 128, 0, 0.288);
+}
+
+.carousel-item {
+    height: 32rem;
+    width: 200px;
+    background: #000;
+    position: relative;
+    color: #FF865E;
+}
+
+.overlay-image {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.5;
+}

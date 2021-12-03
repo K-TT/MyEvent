@@ -1,0 +1,41 @@
+<div class="container">
+  <h1>
+    <%= title %>
+  </h1>
+  <div class="eventWindow">
+    <div class="eventHeader">
+      <div class="eventCity">
+        <p>City Name</p>
+      </div>
+    </div>
+    <div class="eventWindowWrap">
+      <div class="eventFilter">
+        <ul>
+          <li>Date</li>
+          <li>Budget</li>
+          <li>Location</li>
+          <li>
+            Number of People <br>
+            <input type="range" min="1" max="1000" value="50" class="slider" id="participantsRange">
+          </li>
+        </ul>
+      </div>
+      <% for (let count = 0; count < SurveyList.length; count++) { %> 
+      <div class="eventPhoto">
+        <img src="https://via.placeholder.com/550x350" alt="Event Photo" />
+        <div class="eventInfo">
+          <%= EventList[count].eventName %>
+          <%= EventList[count].eventStartTime%>
+          <i class="fa fa-info" aria-hidden="true"></i>
+        </div>
+        <div class="eventDetails">
+          <i class="fa fa-users" aria-hidden="true"> 0</i>
+        </div> 
+      </div>
+      <div class="eventControls">
+        <div class="no"><i class="fa fa-times" aria-hidden="true"></i></div>
+        <div class="yes"><i class="fa fa-heart" aria-hidden="true"></i></div>
+      </div>
+    </div>
+  </div>
+</div>
