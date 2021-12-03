@@ -1,0 +1,146 @@
+  /* Start Find Events Page */
+  
+  .eventWindow {
+      height: 750px;
+      width: 900px;
+      background-color: #fff;
+      margin: 0 auto;
+      border: 1px solid #c0c0c0;
+  }
+  
+  .eventHeader {
+      height: 50px;
+      border-bottom: 1px solid #c0c0c0;
+  }
+  
+  .eventCity {
+      margin: auto;
+      padding: auto;
+      text-align: center;
+      font-size: 26px;
+      font-weight: bold;
+  }
+  
+  .eventFilter {
+      overflow: hidden;
+      margin: 20px 0px auto 0px;
+      position: relative;
+      width: auto;
+      float: left;
+  }
+  
+  .eventFilter ul {
+      list-style: none;
+  }
+  
+  .eventFilter ul li {
+      padding: 2px;
+      font-size: 20px;
+      font-family: 'Helvetica', sans-serif;
+  }
+  
+  .eventPhoto {
+      width: 550px;
+      height: 400px;
+      overflow: hidden;
+      margin: 0 auto 0 70px;
+      position: relative;
+      top: 15px;
+      border-radius: 10px;
+      border: 1px solid #c0c0c0;
+      padding-bottom: 60px;
+      background-color: #fff;
+      box-shadow: 2px 2px 2px #c0c0c0;
+      float: left;
+  }
+  
+  .eventInfo {
+      padding: 15px;
+      font-size: 20px;
+      font-family: 'Helvetica', sans-serif;
+      float: left;
+  }
+  
+  .eventDetails {
+      font-family: 'Helvetica', sans-serif;
+  }
+  
+  .eventDetails .fa-users {
+      color: #c0c0c0;
+      float: right;
+      position: relative;
+      font-size: 24px;
+      padding: 12px;
+  }
+  
+  .fa-info {
+      color: #3788d4;
+      position: relative;
+      font-size: 24px;
+      padding-left: 10px;
+  }
+  
+  .no {
+      background-color: #fff;
+      height: 120px;
+      width: 120px;
+      border-radius: 50%;
+      position: relative;
+      display: inline-block;
+      top: 57px;
+      left: 25px;
+      border: 10px solid #f0f0f0;
+      margin: 0px 410px 0px 200px;
+  }
+  
+  .no i {
+      color: #ff695b;
+      font-size: 80px;
+      padding: 10px;
+  }
+  
+  .yes {
+      background-color: #fff;
+      height: 120px;
+      width: 120px;
+      border-radius: 50%;
+      position: relative;
+      display: inline-block;
+      top: 55px;
+      left: 0px;
+      border: 10px solid #f0f0f0;
+      margin: 0px 0px 0px 0px;
+  }
+  
+  .yes i {
+      color: #5de19c;
+      font-size: 70px;
+      padding: 20px, 15px, 25px, 0;
+  }
+  /* End Find Events page */
+  
+  #FindEventsCarousel {
+      background-color: rgba(0, 128, 0, 0.288);
+      width: 500px;
+      float: center;
+      position: bottom;
+  }
+  
+  .carousel-item {
+      height: 32rem;
+      width: 200px;
+      background: #000;
+      position: relative;
+      color: #FF865E;
+  }
+  
+  .overlay-image {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      top: 0;
+      background-position: center;
+      background-size: cover;
+      opacity: 0.5;
+  }

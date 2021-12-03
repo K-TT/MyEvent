@@ -1,0 +1,15 @@
+let express = require('express');
+let Event = require("../Models/user");
+
+/* Display Find Events Page */
+/* Render Find Events page */
+/*
+module.exports.displayFindEventsPage = (req, res, next) => {
+    Event.find(function(err, event) {
+        if (err) {
+            return console.error(err);
+        }
+        
+        res.render('events', { title: 'Find Events', page: 'findevents', event: Event });
+    });
+};*/
