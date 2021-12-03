@@ -9,29 +9,26 @@
 
 <div class="mainWindow">
   <div class="photoContainer"></div>
-  <h1 class id="signInTitle">Event:<%= events.eventName %></h1>
+  <h1 class id="signInTitle"><%= events.eventName %></h1>
 
   <div class="location">
-    <img src="Assets/images/location_pin.png" class="img-fluid" alt="Location Pin" width="20" height="20">
-    <h5 class="townLbl">Location:<%= events.city %> </h5>
+    <img src="/Assets/images/location_pin.png" class="img-fluid" alt="Location Pin" width="20" height="20">
+    <h5 class="townLbl"><%= events.city %> </h5>
   </div> 
-    
-    <div class="eventTime">
-    <h6>Event Start Time: <%=events.eventStartTime.toDateString()%></h6>
-     <h6>Event End Time: <%=events.eventEndTime.toDateString()%></h6>
-  </div>
-
- <div class="price">
-    <h6>Price: <%= events.price%></h6>
-  </div>
-
-  <div class="tags">
-    <h6>Tags:<%= events.tags%></h6>
-  </div>  
-
-   <div class="descriptionContainer">
-    <h6> <%= events.description%></h6>
-  </div>
-
+  <span class="info">
+      <h6 class = "infoLabel">Start Time:</h6>
+      <h6 class = "infoLabel">End Time: </h6>
+      <h6 class = "infoLabel">Price: </h6>
+      <h6 class = "infoLabel">Tags: </h6>
+  </span> 
+  <span class="info">
+      <h6 class = "infoText"><%=events.eventStartTime.toDateString()%></h6>
+      <h6 class = "infoText"><%=events.eventEndTime.toDateString()%></h6>
+      <h6 class = "infoText">$<%= events.price%></h6>
+      <h6 class = "infoText"><%= events.tags%></h6>
+ </span> 
+ <div class="descriptionContainer">
+  <h6> <%= events.description%></h6>
+</div>
 </div>
 </div>
