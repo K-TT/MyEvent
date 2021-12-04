@@ -84,7 +84,7 @@
 
      <!-- Tutorial -->
      <div class id="box">
-     <div style=" width: 0px; margin: auto;">
+     <div style=" width: 90px; margin: auto;">
      <section id="intro2">
             <div class="col-md-4 d-flex justify-content-center">
              <div class="" >
@@ -114,21 +114,14 @@
           style="background-image:url(Assets/carousel_images/forest1.jpeg);"></div>
           <div class="container">
         <!-- <img src="Assets/carousel_images/forest1.jpeg" class="d-block w-100" alt="Forest in the dark">-->
-        
-        <%events.forEach(event => {%>
-
-        <%if (event.interestedCounter > 5) { %>
-           <h5><%= event.eventName %></h5> 
-           <p><%= event.description%></p>
-              
-          <% } %>
-           <%})%>
-    
-            <button  type="button" onclick="window.location.href='/events'"class="btn btn-lg btn-primary">
+            <h5>First event name</h5>
+            <p>First event description.</p>
+            <a href="#" class="btn btn-lg btn-primary">
             Read more
-            </button>
+            </a>
           </div>
         </div>
+        
         <div class="carousel-item ">
         <div class="overlay-image"
           style="background-image:url(Assets/carousel_images/forest2.jpeg);"></div>
@@ -136,9 +129,9 @@
           <div class="container">
             <h5>Second event name</h5>
             <p>Second event description.</p>
-            <button  type="button" onclick="window.location.href='/events'"class="btn btn-lg btn-primary">
+            <a href="#" class="btn btn-lg btn-primary">
             Read more
-            </button>
+            </a>
           </div>
         </div>
         <div class="carousel-item">
@@ -147,9 +140,9 @@
           <div class="container">
             <h5>Third event name</h5>
             <p>Third event description.</p>
-             <button  type="button" onclick="window.location.href='/events'"class="btn btn-lg btn-primary">
+            <a href="#" class="btn btn-lg btn-primary">
             Read more
-            </button>
+            </a>
           </div>
         </div>
   

@@ -114,21 +114,51 @@
           style="background-image:url(Assets/carousel_images/forest1.jpeg);"></div>
           <div class="container">
         <!-- <img src="Assets/carousel_images/forest1.jpeg" class="d-block w-100" alt="Forest in the dark">-->
-        
-        <%events.forEach(event => {%>
 
-        <%if (event.interestedCounter > 5) { %>
-           <h5><%= event.eventName %></h5> 
-           <p><%= event.description%></p>
-              
-          <% } %>
-           <%})%>
+            <%events.forEach(event => {%>
+                        <div class="eventBox d-md-flex align-items-center justify-content-between mb-30">
+                            <div class="eventBoxLeft my-4 d-md-flex align-items-center flex-wrap">
+                                <img src="https://via.placeholder.com/80"
+                                    class="imageHolder mr-md-4 mb-md-0 mb-4 mx-auto mx-md-0 d-md-none d-lg-flex"
+                                    alt="Event Photo" />
+                                <div class="boxContent">
+                                    <h5 class="text-center text-md-left">
+                                        <%=event.eventName%>
+                                    </h5>
+                                    <ul class="d-md-flex flex-wrap text-capitalize ff-open-sans">
+                                        <li class="mr-md-4">
+                                            <i class="zmdi zmdi-pin mr-2"></i>
+                                            <%=event.city%>
+                                        </li>
+                                        <li class="mr-md-4">
+                                            <i class="zmdi zmdi-money mr-2"></i>
+                                            <%=event.price%>
+                                        </li>
+                                        <li class="mr-md-4">
+                                            <i class="zmdi zmdi-calendar"></i>
+                                            <%=event.eventStartTime.toDateString()%>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="eventBoxRight my-4 flex-shrink-0">
+                                <a href="/events/event-details/<%= event._id %>" class="btn d-block w-100 d-sm-inline-block btn-dark">Detail</a>
+                                <a href="#" class="btn d-block w-100 d-sm-inline-block btn-light">Cancel</a>
+                            </div>
+                        </div>
+                        <%})%>
+
+
+            <h5><%= event.eventName %></h5>
+            <p><%= event. description %></p>
     
             <button  type="button" onclick="window.location.href='/events'"class="btn btn-lg btn-primary">
             Read more
             </button>
           </div>
+
         </div>
+        
         <div class="carousel-item ">
         <div class="overlay-image"
           style="background-image:url(Assets/carousel_images/forest2.jpeg);"></div>

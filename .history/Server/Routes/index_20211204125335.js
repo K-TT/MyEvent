@@ -24,5 +24,7 @@ router.post('/register', indexController.processRegisterPage);
 /* GET - Process Logout */
 router.get('/logout', indexController.performLogout);
 
+/*GET - Popular Events*/
+
 
 module.exports = router;

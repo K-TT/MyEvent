@@ -6,43 +6,14 @@ let passport = require('passport');
 let userModel = require("../Models/user");
 let User = userModel.User; // alias
 
-//create events model for popular events
+//events model
 let eventModel = require("../Models/event");
 let Event = eventModel.eventSchema;
 
 /* Display Home Page */
 module.exports.displayHomePage = (req, res, next) => {
-  Event.find({}, function (err, events) {
-    res.render('index', {
-      title: 'MyEvent',
-      page: 'home',
-      username: req.user ? req.user.username : '',
-      events: events
-    })
-    
-  })
+    res.render('index', {title: 'MyEvent', page: 'home', username: req.user ? req.user.username : ''});
 };
-
-/*
-Event.find({}, function(err, events) {
-        res.render('index', {
-            title: 'MyEvent',
-            page: 'home',
-            username: req.user ? req.user.username : '',
-            events: events
-        })
-
-
-         res.render('index',
-    {
-      title: 'MyEvent',
-      page: 'home',
-      username: req.user ? req.user.username : ''
-    });
-
-*/
-
-
 
 /* Display Login Page */
 module.exports.displayLoginPage = (req, res, next) => {
@@ -225,4 +196,17 @@ module.exports.performLogout = (req, res, next) => {
 }
 
 
+/*Popular Events Display*/
+
+module.exports.displayPopularEventsPage = (req, res, next) => {
+
+    Event.find({}, function(err, events) {
+        res.render('index', {
+            title: 'MyEvent',
+            page: 'home',
+            username: req.user ? req.user.username : '',
+            events: event
+        })
+    })
+};
 

@@ -117,11 +117,11 @@
         
         <%events.forEach(event => {%>
 
-        <%if (event.interestedCounter > 5) { %>
-           <h5><%= event.eventName %></h5> 
-           <p><%= event.description%></p>
-              
-          <% } %>
+        <%if (recipes.length > 0) { %>
+// Do something with more than 1 recipe
+<% } %>
+                   
+          
            <%})%>
     
             <button  type="button" onclick="window.location.href='/events'"class="btn btn-lg btn-primary">

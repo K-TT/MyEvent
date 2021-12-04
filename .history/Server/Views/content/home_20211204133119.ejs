@@ -114,21 +114,14 @@
           style="background-image:url(Assets/carousel_images/forest1.jpeg);"></div>
           <div class="container">
         <!-- <img src="Assets/carousel_images/forest1.jpeg" class="d-block w-100" alt="Forest in the dark">-->
-        
-        <%events.forEach(event => {%>
-
-        <%if (event.interestedCounter > 5) { %>
-           <h5><%= event.eventName %></h5> 
-           <p><%= event.description%></p>
-              
-          <% } %>
-           <%})%>
-    
+            <h5><%=event.eventName%></h5>
+            <p>First event description.</p>
             <button  type="button" onclick="window.location.href='/events'"class="btn btn-lg btn-primary">
             Read more
             </button>
           </div>
         </div>
+        
         <div class="carousel-item ">
         <div class="overlay-image"
           style="background-image:url(Assets/carousel_images/forest2.jpeg);"></div>

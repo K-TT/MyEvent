@@ -12,37 +12,13 @@ let Event = eventModel.eventSchema;
 
 /* Display Home Page */
 module.exports.displayHomePage = (req, res, next) => {
-  Event.find({}, function (err, events) {
-    res.render('index', {
-      title: 'MyEvent',
-      page: 'home',
-      username: req.user ? req.user.username : '',
-      events: events
-    })
-    
-  })
-};
-
-/*
-Event.find({}, function(err, events) {
-        res.render('index', {
-            title: 'MyEvent',
-            page: 'home',
-            username: req.user ? req.user.username : '',
-            events: events
-        })
-
-
-         res.render('index',
+  res.render('index',
     {
       title: 'MyEvent',
       page: 'home',
       username: req.user ? req.user.username : ''
     });
-
-*/
-
-
+};
 
 /* Display Login Page */
 module.exports.displayLoginPage = (req, res, next) => {
@@ -61,6 +37,17 @@ module.exports.displayLoginPage = (req, res, next) => {
       return res.redirect('/');
   }
 }
+/*
+Event.find({}, function(err, events) {
+        res.render('index', {
+            title: 'MyEvent',
+            page: 'home',
+            username: req.user ? req.user.username : '',
+            events: events
+        })
+
+*/
+
 
 /* Process Login Page */
 module.exports.processLoginPage = (req, res, next) => {
@@ -225,4 +212,16 @@ module.exports.performLogout = (req, res, next) => {
 }
 
 
+/*Popular Events Display*/
+module.exports.displayPopularEventsPage = (req, res, next) => {
+
+    Event.find({}, function(err, events) {
+        res.render('index', {
+            title: 'MyEvent',
+            page: 'home',
+            username: req.user ? req.user.username : '',
+            events: events
+        })
+    })
+};
 
