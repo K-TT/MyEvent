@@ -118,7 +118,7 @@ background-color: #285fa8;*/
   left: 0;
   right: 0;
   bottom: 0;
-  margin: 10px;
+  margin: 20px;
 }
 
 .overlay-image {
@@ -129,7 +129,7 @@ background-color: #285fa8;*/
   top: 0;
   background-position: center;
   background-size: cover;
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
 #p_style {

@@ -112,11 +112,11 @@
         <!-- Function For Popular Events --> 
         <%events.forEach(event => {%>
         <%if (event.interestedCounter > 5) { %>
-           <h5 style="text-shadow: 1px 2px black; text-align: center;"><%= event.eventName%></h5> 
-           <a href="/events/event-details/<%= event._id %>" type="button" class="btn btn-info" style="float: right; margin-right:16px">Read More</a>
+           <h5 style="text-shadow: 1px 2px black; text-align: left;"><%= event.eventName%></h5> 
            <p id="p_style"> Event description: </p>
            <li><%= event.description%></li>
             <li><img src="/Assets/images/location_pin.png" class="img-fluid" alt="Location Pin" width="20" height="20"> <%=event.city%></li>
+            <a href="/events/event-details/<%= event._id %>" type="button" class="btn btn-info" style="float: right; margin-right:16px">Read More</a>
           <% } %>
            <%})%>
            

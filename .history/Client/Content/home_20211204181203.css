@@ -107,7 +107,7 @@ section p {
 #pop_events {
   border: 1;
   border-radius: 30px;
-  margin-bottom: 100px;
+  margin-bottom: 0;
   background-color: #89cff0;
 }
 /*
@@ -118,7 +118,7 @@ background-color: #285fa8;*/
   left: 0;
   right: 0;
   bottom: 0;
-  margin: 10px;
+  margin: 20px;
 }
 
 .overlay-image {
