@@ -58,23 +58,13 @@
       padding: 15px;
       font-size: 20px;
       font-family: 'Helvetica', sans-serif;
-      position: absolute;
-      margin-top: 150px;
-  }
-  
-  .eventDetails {
-      padding: 15px;
-      position: absolute;
-      font-family: 'Helvetica', sans-serif;
+      float: left;
       margin-top: 250px;
   }
   
-  p {
-      width: 400px;
-      margin-top: 5px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+  .eventDetails {
+      font-family: 'Helvetica', sans-serif;
+      margin-top: 250px;
   }
   
   .eventDetails .fa-users {

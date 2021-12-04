@@ -63,18 +63,9 @@
   }
   
   .eventDetails {
-      padding: 15px;
       position: absolute;
       font-family: 'Helvetica', sans-serif;
       margin-top: 250px;
-  }
-  
-  p {
-      width: 400px;
-      margin-top: 5px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
   }
   
   .eventDetails .fa-users {

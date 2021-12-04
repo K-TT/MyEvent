@@ -30,13 +30,13 @@
           </li>
         </ul>
       </div>    
-      <div id="evImg" class="eventPhoto" style="background-image:url(Assets/carousel_images/forest1.jpeg);">
+      <div id="evImg" class="eventPhoto">
        
         <div  class="eventInfo">
-          <i class="fa fa-info" aria-hidden="true"><p id = "name">Hi</p></i>
+          <i class="fa fa-info" aria-hidden="true"><p id = "name">HI </p></i>
         </div>
         <div  class="eventDetails">
-          <i class="fa fa-users" aria-hidden="true"><p id = "desc" maxlength="1">Ok-ok-ok-Ok-ok-ok-Ok-ok-ok-Ok-ok-ok</p></i>
+          <i class="fa fa-users" aria-hidden="true"><p id = "desc">OK </p></i>
         </div>
       </div>
  
@@ -53,26 +53,12 @@
   
 </div>
    <script type="text/javascript">
-   
-   let eventN = document.getElementById("name");
-   let eventDesc = document.getElementById("desc");
-   let eventImg = document.getElementById("evImg");
-   var counter =0;
+   alert("This alert box was called with the onload event");
+   var event1N = document.getElementById("name");
+   var event1D = document.getElementById("desc");
    function showNextEvent() {
-     counter++;
-    eventN.innerHTML = "new event name";
-    eventDesc.innerHTML ="new event description";
-    if(counter%2==1){
-      eventImg.style.backgroundImage="url(Assets/carousel_images/mountain.jpeg)";
-      eventN.innerHTML = "new ODD event name";
-    eventDesc.innerHTML ="new ODD event description";
-    }
-    else{
-       eventImg.style.backgroundImage="url(Assets/carousel_images/forest1.jpeg)";
-       eventN.innerHTML = "new EVEN event name";
-    eventDesc.innerHTML ="new EVEN event description";
-    }
-    
+    event1N.value = "Event 2 name";
+    event1D.value = "Event 2 desc";
    
     }
    </script>
