@@ -44,8 +44,8 @@ let User = mongoose.Schema(
         type: Date,
         trim: true,
       },
-      savedEvents: {type: mongoose.Schema.Types.ObjectId, ref: "events"},
-      notInterestedEvents: {type: mongoose.Schema.Types.ObjectId, ref: "events"},
+      savedEvents: [{type: mongoose.Schema.Types.ObjectId, ref: "events"}],
+      notInterestedEvents: [{type: mongoose.Schema.Types.ObjectId, ref: "events"}],
       tags: [String],
       created: 
       {
