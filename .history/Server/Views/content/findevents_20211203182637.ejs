@@ -1,0 +1,68 @@
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+
+
+
+<div class="container">
+  <h1>
+    <%= title %>
+  </h1>
+
+<link rel="stylesheet" type="text/css" href="/Content/findevents.css">
+
+
+  <div class="eventWindow">
+    <div class="eventHeader">
+      <div class="eventCity">
+        <p>City Name</p>
+      </div>
+    </div>
+    <div class="container">
+    
+      <div class="eventFilter">
+        <ul>
+          <li>Date</li>
+          <li>Budget</li>
+          <li>Location</li>
+          <li>
+            Number of People <br>
+            <input type="range" min="1" max="1000" value="50" class="slider" id="participantsRange">
+          </li>
+        </ul>
+      </div>    
+      <div id="evImg" class="eventPhoto" style="background-image:url(Assets/carousel_images/forest1.jpeg);">
+       
+        <div  class="eventInfo">
+          <i class="fa fa-info" aria-hidden="true"><p id = "name">Hi</p></i>
+        </div>
+        <div  class="eventDetails">
+          <i class="fa fa-users" aria-hidden="true"><p id = "desc">OK </p></i>
+        </div>
+      </div>
+ 
+       
+      <div class="eventControls">
+        <button id="notInterestedBtn" class="no" onClick="showNextEvent()"><i class="fa fa-times" aria-hidden="true"></i></button>
+        <button id="saveBtn" class="yes" onClick="showNextEvent()"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      </div>
+      
+   
+     
+    </div>
+  </div>
+  
+</div>
+   <script type="text/javascript">
+   
+   let eventN = document.getElementById("name");
+   let eventDesc = document.getElementById("desc");
+   let eventImg = document.getElementById("evImg");
+   var counter =0;
+   function showNextEvent() {
+     counter++;
+    eventN.innerHTML = "new event name";
+    eventDesc.innerHTML ="new event description";
+    eventImg.style.background-image.url(Assets/carousel_images/forest2.jpeg);
+   
+    }
+   </script>
