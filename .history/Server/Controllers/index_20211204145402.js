@@ -24,6 +24,7 @@ module.exports.displayHomePage = (req, res, next) => {
 };
 
 
+
 /* Display Login Page */
 module.exports.displayLoginPage = (req, res, next) => {
   if(!req.user){

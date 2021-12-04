@@ -102,26 +102,33 @@
 
  <section id="pop_events">
       <h3 style="text-shadow: 1px 5px #242442;">Popular events</h3>
+
       <div id="PopularEventsCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
         <div class="carousel-item active">
         <div class="overlay-image"
-          style="background-image:url(Assets/carousel_images/lights2.png);"></div>  
-               <br><br>
+          style="background-image:url(Assets/carousel_images/city.jpeg);"></div>  
           <div class="container">
+      
+        
         <!-- Function For Popular Events --> 
         <%events.forEach(event => {%>
         <%if (event.interestedCounter > 5) { %>
            <h5 style="text-shadow: 1px 2px black;"><%= event.eventName%></h5> 
            <p id="p_style"> Event description: </p>
-           <li><%= event.description%></li>
-            <li><img src="/Assets/images/location_pin.png" class="img-fluid" alt="Location Pin" width="20" height="20"> <%=event.city%></li>
+          
+                                            <i class="zmdi zmdi-pin mr-2"></i>
+                                            <%=event.city%>
+                                        </li>
+           <p><%= event.description%></p>
+
+              
           <% } %>
            <%})%>
-            <button style="float: right; margin:20px;" type="button" onclick="window.location.href='/events'"class="btn btn-lg btn-primary">
+    
+            <button  type="button" onclick="window.location.href='/events'"class="btn btn-lg btn-primary">
             Read more
             </button>
-           
           </div>
         </div>
         </div>

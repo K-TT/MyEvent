@@ -17,11 +17,11 @@ h1 {
 }
 
 h3 {
-  color: #fa9258;
+  color: #ff865e;
   text-align: center;
   margin-bottom: 20px;
 }
-/*  #ff865e */
+
 h6 {
   color: #285fa8;
   font-weight: 700;
@@ -33,7 +33,7 @@ h6 {
 section h5 {
   text-transform: uppercase;
   font-weight: 700;
-  color: #89cff0;
+  color: #285fa8;
   text-align: center;
   margin-bottom: 20px;
 }
@@ -107,12 +107,11 @@ section p {
 #pop_events {
   border: 1;
   border-radius: 30px;
+  box-shadow: 11px 7px 16px #f0e294;
   margin-bottom: 100px;
-  background-color: #89cff0;
+  background-color: background-color: #285fa8;;
 }
-/*
- box-shadow: 11px 7px 16px #f0e294;
-background-color: #285fa8;*/
+/*background-color: #285fa8;*/
 #pop_events .container {
   position: absolute;
   left: 0;
@@ -130,10 +129,4 @@ background-color: #285fa8;*/
   background-position: center;
   background-size: cover;
   opacity: 0.5;
-}
-
-#p_style {
-  color: white;
-  font-weight: bold;
-  font-size: 100%;
 }

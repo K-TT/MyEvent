@@ -132,8 +132,8 @@ background-color: #285fa8;*/
   opacity: 0.5;
 }
 
-#p_style {
-  color: white;
+#p_style{
+
+  color:#242442; 
   font-weight: bold;
-  font-size: 100%;
 }
