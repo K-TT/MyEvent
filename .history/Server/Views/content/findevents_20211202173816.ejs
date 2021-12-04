@@ -1,0 +1,61 @@
+<div class="container">
+  <h1>
+    <%= title %>
+  </h1>
+  <div class="eventWindow">
+    <div class="eventHeader">
+      <div class="eventCity">
+        <p>City Name</p>
+      </div>
+    </div>
+    <div class="eventWindowWrap">
+      <div class="eventFilter">
+        <ul>
+          <li>Date</li>
+          <li>Budget</li>
+          <li>Location</li>
+          <li>
+            Number of People <br>
+            <input type="range" min="1" max="1000" value="50" class="slider" id="participantsRange">
+          </li>
+        </ul>
+      </div>
+
+
+      <div id="FindEventsCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel"> 
+        <div class="carousel-inner">
+        <% for (let count = 0; count < events.length; count++) { %> 
+        <div class="carousel-item active">
+          <div class="overlay-image"
+          style="background-image:url(Assets/carousel_images/mountain.jpeg);">
+          </div>
+          <div class="container">
+            <div class="eventInfo">
+            <%= events[count].eventName %>
+            <%= events[count].eventStartTime%>
+            <i class="fa fa-info" aria-hidden="true"></i>
+            </div>
+            <div class="eventDetails">
+            <i class="fa fa-users" aria-hidden="true"> <%= events[count].description %></i>
+            </div> 
+          </div>
+        </div>
+        <%}%>
+     <!--<div class="eventPhoto">
+        <img src="Assets/carousel_images/mountain.jpeg" alt="Event Photo" />
+        <div class="eventInfo">
+          <%= //events[count].eventName %>
+          <i class="fa fa-info" aria-hidden="true"></i>
+        </div>
+        <div class="eventDetails">
+          <i class="fa fa-users" aria-hidden="true"> <%= events[count].description %></i>
+        </div> 
+      </div>-->
+      
+      <div class="eventControls">
+        <div class="no"><i class="fa fa-times" aria-hidden="true"></i></div>
+        <div class="yes"><i class="fa fa-heart" aria-hidden="true"></i></div>
+      </div>
+    </div>
+  </div>
+</div>
