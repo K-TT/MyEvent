@@ -3,11 +3,7 @@
     "version": "0.0.4",
     "private": true,
     "scripts": {
-        "start": "node ./index.js"
-    },
-    "engines": {
-        "node": "^14.17.0",
-        "npm": "7.00.0"
+        "start": "node index.js"
     },
     "devDependencies": {
         "@fortawesome/fontawesome-free": "^5.15.4",
