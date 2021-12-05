@@ -28,7 +28,7 @@
     "dependencies": {
         "all": "*",
         "modules": "^0.4.0",
-        "node-modules": "^1.0.1"
+        "node-modules": "^0.0.1"
     },
     "description": "COMP-231 project.\r COMP 231, section 003, Team 2\r #\u0000 \u0000m\u0000y\u0000e\u0000v\u0000e\u0000n\u0000t\u0000\r\u0000 \u0000",
     "main": "index.js",
