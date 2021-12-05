@@ -22,7 +22,7 @@ module.exports.displayFindEventsPage = (req, res, next) => {
                 title: 'Find Events',
                 page: 'findevents',
                 username: req.user ? req.user.username : '',
-                events: eventList
+                events: eventList,
             })
         }
     })

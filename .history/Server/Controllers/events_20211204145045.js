@@ -14,7 +14,7 @@ module.exports.displayFindEventsPage = (req, res, next) => {
 
     let id = req.user.id;
 
-    Event.find((err, eventList) => {
+    Event.find((err, events) => {
         if (err) {
             return console.error(err);
         } else {
@@ -22,7 +22,7 @@ module.exports.displayFindEventsPage = (req, res, next) => {
                 title: 'Find Events',
                 page: 'findevents',
                 username: req.user ? req.user.username : '',
-                events: eventList
+                events: events,
             })
         }
     })
@@ -139,17 +139,12 @@ module.exports.displayFindEventDetailPage = (req, res, next) => {
         return res.redirect('/login');
     }
     let id = req.params.id;
-    Event.findById(id, (err, events) => {
+    Event.findById(id, (err, event) => {
         if (err) {
             console.log(err);
             res.end(err);
         } else {
-            res.render('index', {
-                title: 'Find Event detail',
-                page: 'eventdetails',
-                username: res.user ? res.User.username : '',
-                events: events
-            });
+            res.render('index', { title: 'Find Event detail', page: 'eventdetails', username: res.user ? res.User.username : '', events: event });
 
         }
 

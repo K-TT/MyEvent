@@ -14,7 +14,7 @@ module.exports.displayFindEventsPage = (req, res, next) => {
 
     let id = req.user.id;
 
-    Event.find((err, eventList) => {
+    Event.find((err, event) => {
         if (err) {
             return console.error(err);
         } else {
@@ -22,7 +22,7 @@ module.exports.displayFindEventsPage = (req, res, next) => {
                 title: 'Find Events',
                 page: 'findevents',
                 username: req.user ? req.user.username : '',
-                events: eventList
+                events: event,
             })
         }
     })
