@@ -117,10 +117,10 @@
       border-radius: 50%;
       position: relative;
       display: inline-block;
-      top: 55px;
+      top: 0px;
       left: 0px;
       border: 10px solid #f0f0f0;
-      margin: 0px 0px 0px 0px;
+      margin: -60px 0px 0px 720px;
   }
   
   .yes i {
