@@ -2,7 +2,9 @@
     "name": "myevent",
     "version": "0.0.4",
     "private": true,
-
+    "scripts": {
+        "start": "node index.js"
+    },
     "devDependencies": {
         "@fortawesome/fontawesome-free": "^5.15.4",
         "@popperjs/core": "^2.10.2",
