@@ -19,6 +19,14 @@ let localStrategy = passportLocal.Strategy; // alias
 // Module for auth messaging and error management
 let flash = require('connect-flash');
 
+// Attach Router files
+let indexRouter = require('../Routes/index');
+let eventsRouter = require('../Routes/events');
+let profileRouter = require('../Routes/profile');
+
+
+// App Configuration
+let app = express();
 
 // DB Configuration
 let DB = require("./db");
@@ -26,19 +34,11 @@ let DB = require("./db");
 let mongoDB = mongoose.connection;
 mongoDB.on("error", console.error.bind(console, "Connection Error:"));
 mongoDB.once("open", () => {
-    console.log('Connected to MongoDB at: ' + DB.HostName);
+  console.log('Connected to MongoDB at: ' + DB.HostName);
 });
 
 //Point mongoose to the db uri
 mongoose.connect(DB.RemoteURI, { useNewUrlParser: true, useUnifiedTopology: true });
-
-// Attach Router files
-let indexRouter = require('../Routes/index');
-let eventsRouter = require('../Routes/events');
-let profileRouter = require('../Routes/profile');
-
-// App Configuration
-let app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, '../Views'));
@@ -56,9 +56,9 @@ app.use(cors());
 
 // Setup express session
 app.use(session({
-    secret: DB.Secret,
-    saveUninitialized: false,
-    resave: false,
+  secret: DB.Secret,
+  saveUninitialized: false,
+  resave: false
 }));
 
 // Initialize flash
@@ -90,18 +90,18 @@ app.use("/profile", profileRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-    next(createError(404));
+  next(createError(404));
 });
 
 // error handler
 app.use(function(err, req, res, next) {
-    // set locals, only providing error in development
-    res.locals.message = err.message;
-    res.locals.error = req.app.get('env') === 'development' ? err : {};
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-    // render the error page
-    res.status(err.status || 500);
-    res.render('error');
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
 });
 
 module.exports = app;
