@@ -1,8 +1,6 @@
 
  <!-- CSS and dependencies -->
 
-
-
  <link rel="stylesheet" type="text/css" href="/Content/home.css">
 
 <!-- JavaScript and dependencies -->
@@ -104,14 +102,13 @@
 
  <section id="pop_events">
       <h3 style="text-shadow: 1px 5px #242442;  margin-bottom:5px;">POPULAR EVENTS</h3>
-      <div class="scroller">
       <div id="PopularEventsCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
         <div class="carousel-item active">
         <div class="overlay-image"
           style="background-image:url(Assets/carousel_images/lights2.png);"></div>  
                <br><br>
- 
+        <div style=" width: 0px; margin: auto;">  
           <div class="container">
         <!-- Function For Popular Events --> 
         <%events.forEach(event => {%>
@@ -123,18 +120,19 @@
             <li><img src="/Assets/images/location_pin.png" class="img-fluid" alt="Location Pin" width="20" height="20"> <%=event.city%></li>
           <% } %>
            <%})%>
-     
-          </div>
+           
           </div>
         </div>
         </div>
       </div>
 
+
+
     </section>
 
 
 
-<br><br>
+
 
 
 <!--

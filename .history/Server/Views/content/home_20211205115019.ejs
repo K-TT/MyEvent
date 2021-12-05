@@ -1,7 +1,27 @@
 
  <!-- CSS and dependencies -->
 
+ <style>
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
 
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+</style>
 
  <link rel="stylesheet" type="text/css" href="/Content/home.css">
 
@@ -104,7 +124,6 @@
 
  <section id="pop_events">
       <h3 style="text-shadow: 1px 5px #242442;  margin-bottom:5px;">POPULAR EVENTS</h3>
-      <div class="scroller">
       <div id="PopularEventsCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
         <div class="carousel-item active">
@@ -125,16 +144,17 @@
            <%})%>
      
           </div>
-          </div>
         </div>
         </div>
       </div>
+
+
 
     </section>
 
 
 
-<br><br>
+
 
 
 <!--

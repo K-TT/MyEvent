@@ -118,7 +118,7 @@ background-color: #285fa8;*/
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 10px;
+  bottom: 0;
   margin: 10px;
 }
 
@@ -138,11 +138,11 @@ background-color: #285fa8;*/
   font-weight: bold;
   font-size: 100%;
 }
-
+/*
 .scroller {
-  width: 1295px;
-  height: 750px;
+  width: 300px;
+  height: 100px;
   overflow-y: scroll;
   scrollbar-color: rebeccapurple green;
   scrollbar-width: thin;
-}
+}*/

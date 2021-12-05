@@ -118,7 +118,7 @@ background-color: #285fa8;*/
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 10px;
+  bottom: 0;
   margin: 10px;
 }
 
@@ -140,7 +140,7 @@ background-color: #285fa8;*/
 }
 
 .scroller {
-  width: 1295px;
+  width: px;
   height: 750px;
   overflow-y: scroll;
   scrollbar-color: rebeccapurple green;

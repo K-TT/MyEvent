@@ -98,7 +98,7 @@ section p {
 }
 
 .carousel-item {
-  height: 750px;
+  height: 32rem;
   background: #000;
   position: relative;
   color: #ff865e;
@@ -107,18 +107,17 @@ section p {
 #pop_events {
   border: 1;
   border-radius: 30px;
-  margin-bottom: 0px;
+  margin-bottom: 100px;
   background-color: #89cff0;
 }
 /*
  box-shadow: 11px 7px 16px #f0e294;
 background-color: #285fa8;*/
-
 #pop_events .container {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 10px;
+  bottom: 0;
   margin: 10px;
 }
 
@@ -140,8 +139,6 @@ background-color: #285fa8;*/
 }
 
 .scroller {
-  width: 1295px;
-  height: 750px;
   overflow-y: scroll;
   scrollbar-color: rebeccapurple green;
   scrollbar-width: thin;
