@@ -14,6 +14,8 @@ function FindEventsAndDisplayFindEventsPage(userId, req, res, next) {
             return console.error(err);
         } else {
 
+            let eventsNotInSavedArray = new Array();
+            let eventsNotInInterestingArray = new Array();
             let eventsToShow = new Array();
 
             User.findById(userId, (err, user) => {
@@ -23,35 +25,46 @@ function FindEventsAndDisplayFindEventsPage(userId, req, res, next) {
                 }
                 else {
 
-                    eventList.forEach(event => {
-                        let notSaved = true;
-                        let interested = true;
+                    /*if (user.savedEvents.length === 0 && user.notInterestedEvents.length === 0) {
+                        eventsNotInSavedArray = eventList;
+                        eventsNotInInterestingArray = eventList;
+                    }*/
 
+                    eventList.forEach(event => {
+                        let counterOfMatchesInArrays = 0;
                         user.savedEvents.forEach(saved => {
-                            if (event.id != saved) {
-                                notSaved = true;
-                            }
-                            else {
-                                notSaved = false;
+                            if (event.id.valueOf() === saved.valueOf()) {
+                                counterOfMatchesInArrays++;
+                                //eventsNotInSavedArray.push(event);
+                                //console.log(eventsNotInSavedArray);
                             }
                             //console.log('Is it saved? ' + notSaved + ' Event ID: ' + event.id);
                         })
-
+                        if (counterOfMatchesInArrays === 0) {
+                            eventsNotInSavedArray.push(event);
+                            //console.log(eventsNotInSavedArray);
+                        }
+                        //console.log(eventsNotInSavedArray);
+                        
+                        counterOfMatchesInArrays = 0;
                         user.notInterestedEvents.forEach(notInterested => {
-                            if (event.id != notInterested) {
-                                interested = true;
-                            }
-                            else {
-                                interested = false;
+                            if (event.id.valueOf() === notInterested.valueOf()) {
+                                counterOfMatchesInArrays++;
+                                //eventsNotInInterestingArray.push(event);
                             }
                             //console.log('Is the user interested? ' + interested + ' Event ID: ' + event.id);
                         })
-
-                        if (notSaved && interested) {
-                            eventsToShow.push(event);
+                        if (counterOfMatchesInArrays === 0) {
+                            eventsNotInInterestingArray.push(event);
                         }
                     })
 
+                    //let temp = eventsNotInSavedArray.concat(eventsNotInInterestingArray);
+                    //eventsToShow = temp.filter((item, pos) => temp.indexOf(item) === pos)
+                    //eventsToShow = Array.from(new Set(eventsNotInSavedArray.concat(eventsNotInInterestingArray)))
+                    eventsToShow = eventsNotInSavedArray.concat(eventsNotInInterestingArray)
+
+                    //console.log(eventsToShow);
                     res.render('index', {
                         title: 'Find Events',
                         page: 'findevents',
@@ -129,33 +142,44 @@ module.exports.displaySavedEventsPage = (req, res, next) => {
 
     let id = req.user.id;
 
-    /*User.findById(id, (err, user) => {
-        if (err)
-        {
+    User.findById(id, (err, user) => {
+        if (err) {
             console.log(err);
             res.end(err);
         }
-        else
-        {
+        else {
+            let events = new Array();
+            user.savedEvents.forEach(savedEvent => {
+                Event.findById(savedEvent, (err, event) => {
+                    if (err) {
+                        console.log(err);
+                        res.end(err);
+                    }
+                    else {
+                        events.push(event);
+                    }
+                })
+            })
+
             //show the saved events view
             res.render('index',
-            {
-                title: 'Saved Events',
-                page: 'savedevents',
-                username: req.user ? req.user.username : '',
-                user: user // send the user object to the page
-            }); 
+                {
+                    title: 'Saved Events',
+                    page: 'savedevents',
+                    username: req.user ? req.user.username : '',
+                    events: events // send the saved events array to the page
+                });
         }
-    });*/
+    });
 
-    Event.find({}, function (err, events) {
+    /*Event.find({}, function (err, events) {
         res.render('index', {
             title: 'Saved Events',
             page: 'savedevents',
             username: req.user ? req.user.username : '',
             events: events
         })
-    })
+    })*/
 
 };
 
@@ -169,17 +193,17 @@ module.exports.processSavedEventsPage = (req, res, next) => {
     let eventCity = req.body.eventCitySelection;
     let eventPrice = req.body.eventPriceSelection;
 
-    Event.find({}, function (err, events) {
+    User.findById(id, (err, user) => {
         let matchingEvents = new Array();
         let price; // to check if event is paid or not
 
         // if the selections are empty then show all events
         if (eventCity === "" && eventPrice === "") {
-            matchingEvents = events;
+            matchingEvents = user.savedEvents;
         }
         // if selections are not empty then find events with matching parameters
         else {
-            events.forEach(event => {
+            user.savedEvents.forEach(event => {
                 if (event.price === 0) {
                     price = 'Free'
                 } else {
