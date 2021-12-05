@@ -76,13 +76,22 @@
       text-overflow: ellipsis;
   }
   
-  .eventDetails .fa-users {
+  .eventDetails .fa-book {
       color: #c0c0c0;
       float: right;
       position: relative;
       font-size: 24px;
       padding: 12px;
   }
+
+  .numberOfPeople .fa-users {
+    color: #c0c0c0;
+    float: right;
+    position: relative;
+    font-size: 24px;
+    padding: 30px 0px 0px 26px;
+    float: left;
+}
   
   .fa-info {
       color: #3788d4;
