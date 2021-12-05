@@ -1,3 +1,4 @@
+const { Console } = require('console');
 let express = require('express');
 let userModel = require("../Models/user");
 let User = userModel.User;
@@ -5,6 +6,63 @@ let eventModel = require("../Models/event");
 let Event = eventModel.eventSchema;
 let passport = require('passport');
 const { reset } = require('nodemon');
+let mongoose = require('mongoose');
+
+function FindEventsAndDisplayFindEventsPage(userId, req, res, next) {
+    Event.find((err, eventList) => {
+        if (err) {
+            return console.error(err);
+        } else {
+
+            let eventsToShow = new Array();
+
+            User.findById(userId, (err, user) => {
+                if (err) {
+                    console.log(err);
+                    res.end(err);
+                }
+                else {
+
+                    eventList.forEach(event => {
+                        let notSaved = true;
+                        let interested = true;
+
+                        user.savedEvents.forEach(saved => {
+                            if (event.id != saved) {
+                                notSaved = true;
+                            }
+                            else {
+                                notSaved = false;
+                            }
+                            //console.log('Is it saved? ' + notSaved + ' Event ID: ' + event.id);
+                        })
+
+                        user.notInterestedEvents.forEach(notInterested => {
+                            if (event.id != notInterested) {
+                                interested = true;
+                            }
+                            else {
+                                interested = false;
+                            }
+                            //console.log('Is the user interested? ' + interested + ' Event ID: ' + event.id);
+                        })
+
+                        if (notSaved && interested) {
+                            eventsToShow.push(event);
+                        }
+                    })
+
+                    res.render('index', {
+                        title: 'Find Events',
+                        page: 'findevents',
+                        username: req.user ? req.user.username : '',
+                        events: eventsToShow
+                    })
+                }
+            });
+        }
+    })
+}
 
 /* Display Find Events Page */
 module.exports.displayFindEventsPage = (req, res, next) => {
@@ -12,40 +70,53 @@ module.exports.displayFindEventsPage = (req, res, next) => {
         return res.redirect('/login');
     }
 
-    let id = req.user.id;
+    let userId = req.user.id;
 
-    Event.find((err, eventList) => {
-        if (err) {
-            return console.error(err);
-        } else {
-            res.render('index', {
-                title: 'Find Events',
-                page: 'findevents',
-                username: req.user ? req.user.username : '',
-                events: eventList
-            })
-        }
-    })
+    FindEventsAndDisplayFindEventsPage(userId, req, res, next);
 };
+
 
 /* Process Find Events Page -> Save an Event */
 module.exports.processFindEventsPage = (req, res, next) => {
-    let id = req.params.id;
+    let userId = req.user.id;
 
-    let newUserEvent = User({
-        "savedEvents": id
-    })
-
-    User.create(newUserEvent, (err, User) => {
+    User.findById(userId, (err, user) => {
         if (err) {
             console.log(err);
             res.end(err);
-        } else {
-            console.log("Event saved");
-            res.redirect('index');
         }
-    })
+        else {
+            let eventId = req.body.eventId;
+            let userAction = req.body.userAction; //save or mark as not interesting
+            let eventIdAsObjectIdType = mongoose.Types.ObjectId(eventId);
+            if (userAction === "no") {
+                //user.notInterestedEvents.push(eventIdAsObjectIdType);
+                let updatedNotInterestedEventsArray = user.notInterestedEvents;
+                updatedNotInterestedEventsArray.push(eventIdAsObjectIdType);
 
+                User.updateOne({ _id: userId }, { "$set": { "notInterestedEvents": updatedNotInterestedEventsArray } }, {}, (err) => {
+                    if (err) {
+                        console.log(err);
+                        res.end(err);
+                    }
+                });
+            }
+            else if (userAction === "yes") {
+                //user.savedEvents.push(eventIdAsObjectIdType);
+                let updatedSavedEventsArray = user.savedEvents;
+                updatedSavedEventsArray.push(eventIdAsObjectIdType);
+
+                User.updateOne({ _id: userId }, { "$set": { "savedEvents": updatedSavedEventsArray } }, {}, (err) => {
+                    if (err) {
+                        console.log(err);
+                        res.end(err);
+                    }
+                });
+            }
+
+            FindEventsAndDisplayFindEventsPage(userId, req, res, next);
+        }
+    });
 }
 
 
@@ -77,7 +148,7 @@ module.exports.displaySavedEventsPage = (req, res, next) => {
         }
     });*/
 
-    Event.find({}, function(err, events) {
+    Event.find({}, function (err, events) {
         res.render('index', {
             title: 'Saved Events',
             page: 'savedevents',
@@ -98,7 +169,7 @@ module.exports.processSavedEventsPage = (req, res, next) => {
     let eventCity = req.body.eventCitySelection;
     let eventPrice = req.body.eventPriceSelection;
 
-    Event.find({}, function(err, events) {
+    Event.find({}, function (err, events) {
         let matchingEvents = new Array();
         let price; // to check if event is paid or not
 
@@ -170,7 +241,7 @@ module.exports.displayFindEventDetailPage = (req, res, next) => {
         {
             return console.error(err);
         }
-    //Render Find Events page 
+    //Render Find Events page
     res.render('index', { title: 'Find Event detail', page: 'eventdetails', event: User });
     });
 };

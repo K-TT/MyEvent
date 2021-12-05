@@ -7,11 +7,14 @@ let eventsController = require('../Controllers/events');
 // /events
 router.get('/', eventsController.displayFindEventsPage);
 
+/* POST - Process Find Events page */
+router.post('/', eventsController.processFindEventsPage);
+
 /* GET Saved Events page */
 // /events/saved-events
 router.get('/saved-events', eventsController.displaySavedEventsPage);
 
-/* POST - Process register page */
+/* POST - Process Saved Events page */
 router.post('/saved-events', eventsController.processSavedEventsPage);
 
 /* GET Event Details page */

@@ -40,18 +40,24 @@
           <i class="fa fa-users" aria-hidden="true"><p id="evDesc"></p></i>
         </div>
       </div>
-       
+
       <div class="eventControls">
-        <button id="notInterestedBtn" class="no" onClick= 'showNextEvent()'><i class="fa fa-times" aria-hidden="true"></i></button>
-        <button id="saveBtn" class="yes" onClick="showNextEvent()"><i class="fa fa-heart" aria-hidden="true"></i></button>
-      </div>
-     
+      <form action="/events" method="post">
+        <input type="hidden" name="eventId" id="eventIdNoInput" value="<%=events[0].id%>" />
+        <input type="hidden" name="userAction" id="userAction" value="no" />
+        <button type="submit" id="notInterestedBtn" class="no" onClick="showNextEvent()"><i class="fa fa-times" aria-hidden="true"></i></button>
+      </form>
+      <form action="/events" method="post">
+        <input type="hidden" name="eventId" id="eventIdYesInput" value="<%=events[0].id%>" />
+        <input type="hidden" name="userAction" id="userAction" value="yes" />
+        <button type="submit" id="saveBtn" class="yes" onClick="showNextEvent()"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      </form>
+      </div>  
     </div>
   </div>
   
 </div>
    <script>
-   
    let eventImg=document.getElementById("evImg");
    let evName = document.getElementById("evName");
    let evDesc = document.getElementById("evDesc");
@@ -59,6 +65,17 @@
    const eventsArray= <%- JSON.stringify(events) %>;
    evName.innerHTML = eventsArray[counter].eventName;
    evDesc.innerHTML = eventsArray[counter].description;
+
+   /*let eventId = eventsArray[counter].id;
+
+   let eventIdTwoObjects = document.getElementsByClassName(eventId);
+   eventIdTwoObjects[0].value = eventId;
+   eventIdTwoObjects[1].value = eventId;*/
+
+   /*let eventId = eventsArray[counter].id;
+
+   let eventIdYesInput = document.getElementById(eventId);
+   eventIdYesInput.value = eventId;*/
    
    function showNextEvent() {
      if(counter<eventsArray.length){
