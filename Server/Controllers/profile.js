@@ -31,7 +31,7 @@ module.exports.displayProfilePage = (req, res, next) => {
   };
 
 /*Process Profile Page*/
-module.exports.processProfilePage = (req, res, next) => {
+module.exports.processProfilePage = async (req, res, next) => {
   let id = req.user.id
 
   // Get interest selections
@@ -110,15 +110,18 @@ module.exports.processProfilePage = (req, res, next) => {
     interestSelections.push(req.body.Sports);
   }
 
+    let user = await User.findById(id);
     
     let updatedUser = new User({
-       "_id" : id, 
+      "_id" : id,
       "username": req.body.username.toLowerCase(),
-      "email": req.body.email,
       "firstName": req.body.fname,
       "lastName": req.body.lname,
+      "email": req.body.email,
       "city": req.body.citySel,
       "birthday": req.body.birthday,
+      "savedEvents": user.savedEvents, // if it's not here then it will get deleted after updating the profile
+      "notInterestedEvents": user.notInterestedEvents, // if it's not here then it will get deleted after updating the profile
       "tags": interestSelections
     });
   
@@ -130,7 +133,7 @@ module.exports.processProfilePage = (req, res, next) => {
         }
         else
         {
-            res.redirect('/profile');
+            res.redirect('/'); //redirect to homepage since it logs the user out after update the profile
         }
     });
   
