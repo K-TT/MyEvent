@@ -93,7 +93,7 @@ module.exports.displayFindEventsPage = (req, res, next) => {
 module.exports.processFindEventsPage = (req, res, next) => {
     let userId = req.user.id;
 
-    User.findById(userId, async (err, user) => {
+    User.findById(userId, (err, user) => {
         if (err) {
             console.log(err);
             res.end(err);
@@ -266,7 +266,7 @@ module.exports.cancelEventOnSavedEventsPage = (req, res, next) => {
     let eventId = req.body.eventId;
     let eventIdAsObjectIdType = mongoose.Types.ObjectId(eventId);
 
-    User.findById(userId, async (err, user) => {
+    User.findById(userId, (err, user) => {
 
         let updatedSavedEventsArray = user.savedEvents;
         const indexSavedEvent = updatedSavedEventsArray.indexOf(eventIdAsObjectIdType);
