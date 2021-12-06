@@ -14,9 +14,9 @@ function FindEventsAndDisplayFindEventsPage(userId, req, res, next) {
             return console.error(err);
         } else {
 
-            let eventsNotInSavedArray = new Array();
+            //let eventsNotInSavedArray = new Array();
             let eventsNotInInterestingArray = new Array();
-            let eventsToShow = new Array();
+            //let eventsToShow = new Array();
 
             User.findById(userId, (err, user) => {
                 if (err) {
@@ -32,7 +32,7 @@ function FindEventsAndDisplayFindEventsPage(userId, req, res, next) {
 
                     eventList.forEach(event => {
                         let counterOfMatchesInArrays = 0;
-                        user.savedEvents.forEach(saved => {
+                        /*user.savedEvents.forEach(saved => {
                             if (event.id.valueOf() === saved.valueOf()) {
                                 counterOfMatchesInArrays++;
                                 //eventsNotInSavedArray.push(event);
@@ -46,7 +46,7 @@ function FindEventsAndDisplayFindEventsPage(userId, req, res, next) {
                         }
                         //console.log(eventsNotInSavedArray);
                         
-                        counterOfMatchesInArrays = 0;
+                        counterOfMatchesInArrays = 0;*/
                         user.notInterestedEvents.forEach(notInterested => {
                             if (event.id.valueOf() === notInterested.valueOf()) {
                                 counterOfMatchesInArrays++;
@@ -62,14 +62,14 @@ function FindEventsAndDisplayFindEventsPage(userId, req, res, next) {
                     //let temp = eventsNotInSavedArray.concat(eventsNotInInterestingArray);
                     //eventsToShow = temp.filter((item, pos) => temp.indexOf(item) === pos)
                     //eventsToShow = Array.from(new Set(eventsNotInSavedArray.concat(eventsNotInInterestingArray)))
-                    eventsToShow = eventsNotInSavedArray.concat(eventsNotInInterestingArray)
+                    //eventsToShow = eventsNotInSavedArray.concat(eventsNotInInterestingArray)
 
                     //console.log(eventsToShow);
                     res.render('index', {
                         title: 'Find Events',
                         page: 'findevents',
                         username: req.user ? req.user.username : '',
-                        events: eventsToShow
+                        events: eventsNotInInterestingArray //eventsNotInInterestingArray contains all elements that should not be shown to the user
                     })
                 }
             });
@@ -120,6 +120,16 @@ module.exports.processFindEventsPage = (req, res, next) => {
                 updatedSavedEventsArray.push(eventIdAsObjectIdType);
 
                 User.updateOne({ _id: userId }, { "$set": { "savedEvents": updatedSavedEventsArray } }, {}, (err) => {
+                    if (err) {
+                        console.log(err);
+                        res.end(err);
+                    }
+                });
+
+                let updatedNotInterestedEventsArray = user.notInterestedEvents;
+                updatedNotInterestedEventsArray.push(eventIdAsObjectIdType);
+
+                User.updateOne({ _id: userId }, { "$set": { "notInterestedEvents": updatedNotInterestedEventsArray } }, {}, (err) => {
                     if (err) {
                         console.log(err);
                         res.end(err);
