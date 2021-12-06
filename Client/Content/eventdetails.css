@@ -17,6 +17,7 @@
     width: 700px;
     margin: auto;
     margin-top: 50px;
+    margin-bottom: 300px;
     background-color: #FEE440;
     border-radius: 30px;
     padding: 20px;
@@ -105,4 +106,23 @@ h1 {
     background-color: #FFFFFF;
     border-radius: 30px;
     padding: 20px;
+}
+
+.yes {
+    background-color: #fff;
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    position: relative;
+    display: inline-block;
+    top: 60px;
+    left: 0px;
+    border: 10px solid #f0f0f0;
+    margin: 0px 0px 0px 540px;
+}
+
+.yes i {
+    color: #5de19c;
+    font-size: 70px;
+    padding: 20px, 15px, 25px, 0;
 }
