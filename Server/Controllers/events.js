@@ -135,6 +135,14 @@ module.exports.processFindEventsPage = (req, res, next) => {
                         res.end(err);
                     }
                 });
+
+                //increment interestedCounter by 1 every time a user saves an event
+                Event.updateOne({ _id: eventId }, { $inc: { interestedCounter: 1 } }, {}, (err) => {
+                    if (err) {
+                        console.log(err);
+                        res.end(err);
+                    }
+                });
             }
 
             FindEventsAndDisplayFindEventsPage(userId, req, res, next);
