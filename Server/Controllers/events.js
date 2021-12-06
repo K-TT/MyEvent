@@ -235,6 +235,8 @@ module.exports.processSavedEventsPage = (req, res, next) => {
     let eventCity = req.body.eventCitySelection;
     let eventPrice = req.body.eventPriceSelection;
     let eventKeyword = req.body.keyword;
+    let eventStartDateString = req.body.eventStartDatePicker;
+    let eventStartDate = new Date(eventStartDateString);
 
     User.findById(id, async (err, user) => {
         let matchingEvents = new Array();
@@ -243,7 +245,7 @@ module.exports.processSavedEventsPage = (req, res, next) => {
         let savedEventsArray = user.savedEvents;
 
         // if the selections are empty then show all events
-        if (eventCity === "" && eventPrice === "" && eventKeyword === "") {
+        if (eventCity === "" && eventPrice === "" && eventKeyword === "" && eventStartDateString === "") {
             for (var i = 0; i < savedEventsArray.length; i++) {
                 let event = await Event.findById(savedEventsArray[i]);
                 matchingEvents.push(event);
@@ -260,7 +262,9 @@ module.exports.processSavedEventsPage = (req, res, next) => {
                     price = 'Paid'
                 }
 
-                if ((eventCity === "" || event.city === eventCity) && (eventPrice === "" || price === eventPrice)) {
+                if ((eventCity === "" || event.city === eventCity) &&
+                    (eventPrice === "" || price === eventPrice) &&
+                    (eventStartDateString === "" || event.eventStartTime.getTime() >= eventStartDate.getTime())) {
                     for (var j = 0; j < event.tags.length; j++) {
                         if (eventKeyword === "" || event.tags[j] === eventKeyword) {
                             matchingEvents.push(event);
