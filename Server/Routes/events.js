@@ -17,6 +17,9 @@ router.get('/saved-events', eventsController.displaySavedEventsPage);
 /* POST - Process Saved Events page */
 router.post('/saved-events', eventsController.processSavedEventsPage);
 
+/* POST - Process Saved Events Cancel Event function */
+router.post('/saved-events/cancel', eventsController.cancelEventOnSavedEventsPage);
+
 /* GET Event Details page */
 router.get('/event-details/:id', eventsController.displayFindEventDetailPage);
 

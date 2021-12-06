@@ -159,7 +159,6 @@ module.exports.processFindEventsPage = (req, res, next) => {
     });
 }
 
-
 /* Display Saved Events Page */
 module.exports.displaySavedEventsPage = (req, res, next) => {
     // redirect users to the login page if they are not logged in
@@ -167,9 +166,9 @@ module.exports.displaySavedEventsPage = (req, res, next) => {
         return res.redirect('/login');
     }
 
-    let id = req.user.id;
+    let userId = req.user.id;
 
-    User.findById(id, async (err, user) => {
+    User.findById(userId, async (err, user) => {
         if (err) {
             console.log(err);
             res.end(err);
@@ -177,27 +176,8 @@ module.exports.displaySavedEventsPage = (req, res, next) => {
         else {
             let events = new Array();
             let savedEventsArray = user.savedEvents;
-            /*user.savedEvents.forEach(savedEvent => {
-                Event.findById(savedEvent, (err, event) => {
-                    if (err) {
-                        console.log(err);
-                        res.end(err);
-                    }
-                    else {
-                        events.push(event);
-                    }
-                })
-            })*/
+
             for (var i = 0; i < savedEventsArray.length; i++) {
-                /*Event.findById(savedEventsArray[i], (err, event) => {
-                    if (err) {
-                        console.log(err);
-                        res.end(err);
-                    }
-                    else {
-                        events.push(event);
-                    }
-                })*/
                 let event = await Event.findById(savedEventsArray[i]);
                 events.push(event);
             }
@@ -212,15 +192,6 @@ module.exports.displaySavedEventsPage = (req, res, next) => {
                 });
         }
     });
-
-    /*Event.find({}, function (err, events) {
-        res.render('index', {
-            title: 'Saved Events',
-            page: 'savedevents',
-            username: req.user ? req.user.username : '',
-            events: events
-        })
-    })*/
 
 };
 
@@ -281,6 +252,49 @@ module.exports.processSavedEventsPage = (req, res, next) => {
             username: req.user ? req.user.username : '',
             events: matchingEvents
         })
+    })
+
+};
+
+//Cancel event button processing logic
+module.exports.cancelEventOnSavedEventsPage = (req, res, next) => {
+    // redirect users to the login page if they are not logged in
+    if (req.user == null) {
+        return res.redirect('/login');
+    }
+    let userId = req.user.id;
+    let eventId = req.body.eventId;
+    let eventIdAsObjectIdType = mongoose.Types.ObjectId(eventId);
+
+    User.findById(userId, async (err, user) => {
+
+        let updatedSavedEventsArray = user.savedEvents;
+        const indexSavedEvent = updatedSavedEventsArray.indexOf(eventIdAsObjectIdType);
+        if (indexSavedEvent > -1) {
+            updatedSavedEventsArray.splice(indexSavedEvent, 1);
+        }
+
+        User.updateOne({ _id: userId }, { "$set": { "savedEvents": updatedSavedEventsArray } }, {}, (err) => {
+            if (err) {
+                console.log(err);
+                res.end(err);
+            }
+        });
+
+        let updatedNotInterestedEventsArray = user.notInterestedEvents;
+        const indexNotInterestedEvent = updatedNotInterestedEventsArray.indexOf(eventIdAsObjectIdType);
+        if (indexNotInterestedEvent > -1) {
+            updatedNotInterestedEventsArray.splice(indexNotInterestedEvent, 1);
+        }
+
+        User.updateOne({ _id: userId }, { "$set": { "notInterestedEvents": updatedNotInterestedEventsArray } }, {}, (err) => {
+            if (err) {
+                console.log(err);
+                res.end(err);
+            }
+        });
+
+        return res.redirect('/events/saved-events');
     })
 
 };
