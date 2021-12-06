@@ -93,7 +93,7 @@ module.exports.displayFindEventsPage = (req, res, next) => {
 module.exports.processFindEventsPage = (req, res, next) => {
     let userId = req.user.id;
 
-    User.findById(userId, (err, user) => {
+    User.findById(userId, async (err, user) => {
         if (err) {
             console.log(err);
             res.end(err);
@@ -117,32 +117,41 @@ module.exports.processFindEventsPage = (req, res, next) => {
             else if (userAction === "yes") {
                 //user.savedEvents.push(eventIdAsObjectIdType);
                 let updatedSavedEventsArray = user.savedEvents;
-                updatedSavedEventsArray.push(eventIdAsObjectIdType);
 
-                User.updateOne({ _id: userId }, { "$set": { "savedEvents": updatedSavedEventsArray } }, {}, (err) => {
-                    if (err) {
-                        console.log(err);
-                        res.end(err);
+                let counterOfMatchesInArray = 0;
+                for (var i = 0; i < updatedSavedEventsArray.length; i++) {
+                    if (updatedSavedEventsArray[i].valueOf() === eventIdAsObjectIdType.valueOf()) {
+                        counterOfMatchesInArray++;
                     }
-                });
+                }
+                if (counterOfMatchesInArray === 0) {
+                    updatedSavedEventsArray.push(eventIdAsObjectIdType);
+                    User.updateOne({ _id: userId }, { "$set": { "savedEvents": updatedSavedEventsArray } }, {}, (err) => {
+                        if (err) {
+                            console.log(err);
+                            res.end(err);
+                        }
+                    });
 
-                let updatedNotInterestedEventsArray = user.notInterestedEvents;
-                updatedNotInterestedEventsArray.push(eventIdAsObjectIdType);
+                    let updatedNotInterestedEventsArray = user.notInterestedEvents;
+                    updatedNotInterestedEventsArray.push(eventIdAsObjectIdType);
 
-                User.updateOne({ _id: userId }, { "$set": { "notInterestedEvents": updatedNotInterestedEventsArray } }, {}, (err) => {
-                    if (err) {
-                        console.log(err);
-                        res.end(err);
-                    }
-                });
+                    User.updateOne({ _id: userId }, { "$set": { "notInterestedEvents": updatedNotInterestedEventsArray } }, {}, (err) => {
+                        if (err) {
+                            console.log(err);
+                            res.end(err);
+                        }
+                    });
 
-                //increment interestedCounter by 1 every time a user saves an event
-                Event.updateOne({ _id: eventId }, { $inc: { interestedCounter: 1 } }, {}, (err) => {
-                    if (err) {
-                        console.log(err);
-                        res.end(err);
-                    }
-                });
+                    //increment interestedCounter by 1 every time a user saves an event
+                    Event.updateOne({ _id: eventId }, { $inc: { interestedCounter: 1 } }, {}, (err) => {
+                        if (err) {
+                            console.log(err);
+                            res.end(err);
+                        }
+                    });
+                }
+
             }
 
             FindEventsAndDisplayFindEventsPage(userId, req, res, next);
@@ -192,7 +201,7 @@ module.exports.displaySavedEventsPage = (req, res, next) => {
                 let event = await Event.findById(savedEventsArray[i]);
                 events.push(event);
             }
-            
+
             //show the saved events view
             res.render('index',
                 {
