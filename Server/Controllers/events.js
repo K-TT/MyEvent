@@ -160,14 +160,15 @@ module.exports.displaySavedEventsPage = (req, res, next) => {
 
     let id = req.user.id;
 
-    User.findById(id, (err, user) => {
+    User.findById(id, async (err, user) => {
         if (err) {
             console.log(err);
             res.end(err);
         }
         else {
             let events = new Array();
-            user.savedEvents.forEach(savedEvent => {
+            let savedEventsArray = user.savedEvents;
+            /*user.savedEvents.forEach(savedEvent => {
                 Event.findById(savedEvent, (err, event) => {
                     if (err) {
                         console.log(err);
@@ -177,8 +178,21 @@ module.exports.displaySavedEventsPage = (req, res, next) => {
                         events.push(event);
                     }
                 })
-            })
-
+            })*/
+            for (var i = 0; i < savedEventsArray.length; i++) {
+                /*Event.findById(savedEventsArray[i], (err, event) => {
+                    if (err) {
+                        console.log(err);
+                        res.end(err);
+                    }
+                    else {
+                        events.push(event);
+                    }
+                })*/
+                let event = await Event.findById(savedEventsArray[i]);
+                events.push(event);
+            }
+            
             //show the saved events view
             res.render('index',
                 {
@@ -207,9 +221,11 @@ module.exports.processSavedEventsPage = (req, res, next) => {
     if (req.user == null) {
         return res.redirect('/login');
     }
+    let id = req.user.id;
 
     let eventCity = req.body.eventCitySelection;
     let eventPrice = req.body.eventPriceSelection;
+
 
     User.findById(id, (err, user) => {
         let matchingEvents = new Array();
