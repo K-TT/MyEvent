@@ -227,17 +227,24 @@ module.exports.processSavedEventsPage = (req, res, next) => {
     let eventPrice = req.body.eventPriceSelection;
 
 
-    User.findById(id, (err, user) => {
+    User.findById(id, async (err, user) => {
         let matchingEvents = new Array();
         let price; // to check if event is paid or not
 
+        let savedEventsArray = user.savedEvents;
+
         // if the selections are empty then show all events
         if (eventCity === "" && eventPrice === "") {
-            matchingEvents = user.savedEvents;
+            for (var i = 0; i < savedEventsArray.length; i++) {
+                let event = await Event.findById(savedEventsArray[i]);
+                matchingEvents.push(event);
+            }
         }
         // if selections are not empty then find events with matching parameters
         else {
-            user.savedEvents.forEach(event => {
+            for (var i = 0; i < savedEventsArray.length; i++) {
+                let event = await Event.findById(savedEventsArray[i]);
+                
                 if (event.price === 0) {
                     price = 'Free'
                 } else {
@@ -247,7 +254,7 @@ module.exports.processSavedEventsPage = (req, res, next) => {
                 if ((eventCity === "" || event.city === eventCity) && (eventPrice === "" || price === eventPrice)) {
                     matchingEvents.push(event);
                 }
-            })
+            }
         }
 
         res.render('index', {
