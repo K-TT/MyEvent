@@ -225,7 +225,7 @@ module.exports.processSavedEventsPage = (req, res, next) => {
 
     let eventCity = req.body.eventCitySelection;
     let eventPrice = req.body.eventPriceSelection;
-
+    let eventKeyword = req.body.keyword;
 
     User.findById(id, async (err, user) => {
         let matchingEvents = new Array();
@@ -234,7 +234,7 @@ module.exports.processSavedEventsPage = (req, res, next) => {
         let savedEventsArray = user.savedEvents;
 
         // if the selections are empty then show all events
-        if (eventCity === "" && eventPrice === "") {
+        if (eventCity === "" && eventPrice === "" && eventKeyword === "") {
             for (var i = 0; i < savedEventsArray.length; i++) {
                 let event = await Event.findById(savedEventsArray[i]);
                 matchingEvents.push(event);
@@ -244,15 +244,20 @@ module.exports.processSavedEventsPage = (req, res, next) => {
         else {
             for (var i = 0; i < savedEventsArray.length; i++) {
                 let event = await Event.findById(savedEventsArray[i]);
-                
-                if (event.price === 0) {
+
+                if (event.price <= 0) {
                     price = 'Free'
                 } else {
                     price = 'Paid'
                 }
 
                 if ((eventCity === "" || event.city === eventCity) && (eventPrice === "" || price === eventPrice)) {
-                    matchingEvents.push(event);
+                    for (var j = 0; j < event.tags.length; j++) {
+                        if (eventKeyword === "" || event.tags[j] === eventKeyword) {
+                            matchingEvents.push(event);
+                            break;
+                        }
+                    }
                 }
             }
         }
