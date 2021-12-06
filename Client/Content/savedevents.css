@@ -2,6 +2,10 @@ body {
     background:#FEF9EF;
   }
 
+.container {
+  margin-bottom: 200px;
+}
+
 .eventsForm {
   background-color: #FF865E;
   border-radius: 5px;
