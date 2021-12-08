@@ -325,7 +325,7 @@ module.exports.displayFindEventDetailPage = (req, res, next) => {
             res.render('index', {
                 title: 'Find Event detail',
                 page: 'eventdetails',
-                username: res.user ? res.User.username : '',
+                username: req.user ? req.user.username : '',
                 events: events
             });
 
