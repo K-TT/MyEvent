@@ -182,6 +182,11 @@ module.exports.displaySavedEventsPage = (req, res, next) => {
                 events.push(event);
             }
 
+            //sort events by date
+            events.sort(function (a, b) {
+                return a.eventStartTime.getTime() - b.eventStartTime.getTime();
+            });
+
             //show the saved events view
             res.render('index',
                 {
@@ -245,6 +250,11 @@ module.exports.processSavedEventsPage = (req, res, next) => {
                 }
             }
         }
+
+        //sort events by date
+        matchingEvents.sort(function (a, b) {
+            return a.eventStartTime.getTime() - b.eventStartTime.getTime();
+        });
 
         res.render('index', {
             title: 'Saved Events',
