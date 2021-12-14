@@ -1,8 +1,7 @@
 let assert = require('chai').assert;
 let index = require('../Server/Controllers/index');
 
-const { interestedCounter } = require('../Server/Controllers/index');
-var expect = require('chai').expect;
+const { event, interestedCounter } = require('../src/app');
 
 /*
 describe('Index', function(){
@@ -11,10 +10,9 @@ describe('Index', function(){
     });
 });*/
 
-/* Unit test to check if popular events interest counter is more than 5 */
 describe('the pop even function', () => {
       it('interestedCounter should be more than 5', () => {
-          const result =interestedCounter > 5;
-         expect(result);
+          const result = sub(1);
+        expect(result).to.be.eq(5);
       });
 });

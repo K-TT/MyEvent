@@ -14,7 +14,7 @@ describe('Index', function(){
 /* Unit test to check if popular events interest counter is more than 5 */
 describe('the pop even function', () => {
       it('interestedCounter should be more than 5', () => {
-          const result =interestedCounter > 5;
-         expect(result);
+          const result =interestedCounter < 5;
+         expect(result).true;
       });
 });

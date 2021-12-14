@@ -15,6 +15,6 @@ describe('Index', function(){
 describe('the pop even function', () => {
       it('interestedCounter should be more than 5', () => {
           const result =interestedCounter > 5;
-         expect(result);
+         expect(result).;
       });
 });
