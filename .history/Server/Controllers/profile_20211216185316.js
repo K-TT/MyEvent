@@ -118,7 +118,7 @@ module.exports.processProfilePage = async (req, res, next) => {
       "firstName": req.body.fname,
       "lastName": req.body.lname,
       "email": req.body.email,
-      "gender": req.body.gender,
+      "email": req.body.email,
       "city": req.body.citySel,
       "birthday": req.body.birthday,
       "savedEvents": user.savedEvents, // if it's not here then it will get deleted after updating the profile

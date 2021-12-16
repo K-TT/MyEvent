@@ -38,7 +38,7 @@ let User = mongoose.Schema(
         type: String,
         default: "",
         trim: true,
-        required: "gender is required",
+        required: "email address is required",
       },
       city:
       {

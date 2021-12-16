@@ -33,12 +33,12 @@ let User = mongoose.Schema(
         trim: true,
       required: "email address is required",
       },
-      gender: 
+      gen: 
       {
         type: String,
         default: "",
         trim: true,
-        required: "gender is required",
+        required: "email address is required",
       },
       city:
       {
