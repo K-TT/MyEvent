@@ -78,13 +78,12 @@
       </div>
       <!-- Birthday input -->
       <div class="col">
-        <div class="form-outline" data-mdb-format="yyyy/mm/dd" data-mdb-inline="true">
+        <div class="form-outline datepicker" data-mdb-format="yyyy/mm/dd" data-mdb-inline="true">
           <input
-            type="date"
+            type="text"
             name="birthday"
             class="form-control"
             id="bdayPicker"
-            min="1921-01-01" 
           />
           <label for="bdayPicker" class="form-label">Birthday</label>
         </div>
@@ -254,8 +253,14 @@
   Already have an account? 
   <a href="/login">Sign in</a>
 </p>
-
-
+<script>
+$('.datepicker').datepicker({
+// An integer (positive/negative) sets it relative to today.
+min: -15,
+// `true` sets it to today. `false` removes any limits.
+max: true
+})
+</script>
 <!-- Bottom Navigation Section -->
 <%- include('../components/bottom_nav.ejs'); %>
 
