@@ -163,6 +163,7 @@ module.exports.displayRegisterPage = (req, res, next) => {
     let newUser = new User({
       username: req.body.username.toLowerCase(),
       email: req.body.email,
+      gender: req.body.gender,
       firstName: req.body.fname,
       lastName: req.body.lname,
       city: req.body.citySel,
