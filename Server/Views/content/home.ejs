@@ -11,6 +11,13 @@
 
 <div class="container">
 
+    <div class="row">
+        <!-- Message Area -->
+        <% if(messages.length > 0) {%>
+        <div class="alert alert-success"><%= messages %></div>
+        <% } %>
+      </div>
+
     <main>
         <section id="intro">
             <div class="row">

@@ -17,7 +17,8 @@ module.exports.displayHomePage = (req, res, next) => {
       title: 'MyEvent',
       page: 'home',
       username: req.user ? req.user.username : '',
-      events: events
+      events: events,
+      messages: ""
     })
     
   })
@@ -189,11 +190,23 @@ module.exports.displayRegisterPage = (req, res, next) => {
         });
       } else {
         // if no error exists, then registration is successful
-  
+        req.flash(
+          "successfulMessage",
+          "Registration Successful!"
+        );
         // redirect user and authenticate them
         console.log("Registration Successful");
         return passport.authenticate("local")(req, res, () => {
-          res.redirect("/");
+          Event.find({}, function (err, events) {
+            res.render('index', {
+              title: 'MyEvent',
+              page: 'home',
+              username: req.user ? req.user.username : '',
+              events: events,
+              messages: req.flash("successfulMessage"),
+            })
+            
+          })
         });
       }
     });
