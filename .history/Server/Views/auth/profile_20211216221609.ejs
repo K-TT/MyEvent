@@ -8,7 +8,7 @@
 
 <div class="container">
   <div class="row">
-  <form method="POST" class="mt-5 p-4 profileForm ms-auto me-auto">
+  <form id="profForm" method="POST" class="mt-5 p-4 profileForm ms-auto me-auto">
     <h3 class="text-center mb-4">My Profile</h3>
 
     <!-- username input -->
@@ -81,13 +81,13 @@
 
       <!-- Birthday input -->
       <div class="col">
-        <div id="bdPicker" class="form-outline datepicker" data-mdb-format="yyyy/mm/dd" data-mdb-inline="true">
+        <div class="form-outline" data-mdb-format="yyyy/mm/dd" data-mdb-inline="true">
           <input
             type="text"
             name="birthday"
             class="form-control"
             id="bdayPicker"
-            value="<%= bdayYear %>/<%= bdayMonth  %>/<%= bdayDay %>" 
+             value="<%= bdayYear %>/<%= bdayMonth  %>/<%= bdayDay %>" 
           />
           <label for="bdayPicker" class="form-label">Birthday</label>
         </div>
@@ -378,10 +378,35 @@
     </div>
 
     <script>
-
-$( "#bdPicker" ).datepicker({ 
-   startDate: '-2y',
-    endDate: '+2y' });
+    $(document).ready(function() {
+    $('#profForm').bootstrapValidator({
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            birthday: {
+                validators: {
+                    birthday: {
+                        message: 'The date is not valid',
+                        format: 'YYYY/MM/DD'
+                    },
+                    callback: {
+                        message: 'The date is not in the range',
+                        callback: function(value, validator) {
+                            var m = new moment(value, 'YYYY/MM/DD', true);
+                            if (!m.isValid()) {
+                                return false;
+                            }
+                            return m.isAfter('1950/01/01') && m.isBefore('2015/12/30');
+                        }
+                    }
+                }
+            }
+        }
+    });
+});
     </script>
 
 <!-- Bottom Navigation Section -->

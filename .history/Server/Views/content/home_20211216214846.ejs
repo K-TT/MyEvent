@@ -113,7 +113,7 @@
                                 <!-- Function For Popular Events -->
                                 <%events.forEach(event => {%>
                                     <%if (event.interestedCounter > 5) { %>
-                                        <h5 style=" text-align: center;">
+                                        <h5 style="background-color: rgba(255, 255, 255, 0.5), text-align: center;">
                                             <%= event.eventName%>
                                         </h5>
                                         <a href="/events/event-details/<%= event._id %>" type="button" id="readmore" class="btn btn-info" style="float: right; margin-right:16px">Read More</a>

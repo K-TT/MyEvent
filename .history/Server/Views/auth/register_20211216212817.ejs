@@ -1,8 +1,4 @@
-<!--  <script>
-  function showAlert() {
-    alert ("Registration Sucsessful!");
-  }
-  </script>-->
+  
 <!-- Header Section -->
 <%- include('../components/header.ejs'); %>
 
@@ -28,7 +24,7 @@
 
     <!-- password input -->
     <div class="form-outline mb-4 col-md-12">
-      <input type="password" name="password" id="pwd1" class="form-control" />
+      <input type="password" name="password" id="pwd1" class="form-control"/>
       <label class="form-label" for="pwd1">Password</label>
     </div>
 
@@ -36,6 +32,12 @@
     <div class="form-outline mb-4 col-md-12">
       <input type="email" name="email" id="emailAddress" class="form-control" />
       <label class="form-label" for="emailAddress">Email</label>
+    </div>
+
+      <!-- Gender input -->
+    <div class="form-outline mb-4 col-md-12">
+      <input type="gender" name="gender" id="gender" class="form-control" />
+      <label class="form-label" for="gender">Gender</label>
     </div>
 
     <!-- 2 column grid layout with text inputs for the first and last names -->
@@ -53,6 +55,7 @@
         </div>
       </div>
     </div>
+
 
     <!-- City dropdown -->
     <div class="row mb-4">
@@ -72,20 +75,19 @@
           <option value="Scarborough">Scarborough</option>
           <option value="Sudbury">Sudbury</option>
           <option value="Toronto">Toronto</option>
-          <option value="Vaughn">Vaughn</option>
+          <option value="Vaughan">Vaughan</option>
         </select>
         <label class="form-label select-label">City</label>
       </div>
       <!-- Birthday input -->
       <div class="col">
-        <div class="form-outline datepicker" data-mdb-format="yyyy/mm/dd" data-mdb-inline="true">
+        <div class="form-outline" data-mdb-format="yyyy/mm/dd" data-mdb-inline="true">
           <input
-            type="text"
+            type="date"
             name="birthday"
             class="form-control"
             id="bdayPicker"
             min="1921-01-01" 
-            max="2011-01-01" 
           />
           <label for="bdayPicker" class="form-label">Birthday</label>
         </div>
@@ -245,7 +247,7 @@
     <div class="row">
       <div class="col-md-6"></div>
     <div class="col-md-6 text-end pt-4">
-      <button type="submit" id="submitButton" class="btn mb-4 regBtn" value="Register" >Sign Up</button>
+      <button type="submit" id="submitButton" class="btn mb-4 regBtn" value="Register">Sign Up</button>
     </div>
     </div>
   </form>
@@ -255,6 +257,7 @@
   Already have an account? 
   <a href="/login">Sign in</a>
 </p>
+
 
 <!-- Bottom Navigation Section -->
 <%- include('../components/bottom_nav.ejs'); %>

@@ -1,8 +1,8 @@
-<!--  <script>
+  <script>
   function showAlert() {
     alert ("Registration Sucsessful!");
   }
-  </script>-->
+  </script>
 <!-- Header Section -->
 <%- include('../components/header.ejs'); %>
 
@@ -80,7 +80,7 @@
       <div class="col">
         <div class="form-outline datepicker" data-mdb-format="yyyy/mm/dd" data-mdb-inline="true">
           <input
-            type="text"
+            type="date"
             name="birthday"
             class="form-control"
             id="bdayPicker"
@@ -245,7 +245,7 @@
     <div class="row">
       <div class="col-md-6"></div>
     <div class="col-md-6 text-end pt-4">
-      <button type="submit" id="submitButton" class="btn mb-4 regBtn" value="Register" >Sign Up</button>
+      <button type="submit" id="submitButton" class="btn mb-4 regBtn" value="Register" onclick="showAlert()">Sign Up</button>
     </div>
     </div>
   </form>
