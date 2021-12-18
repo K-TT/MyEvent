@@ -10,6 +10,7 @@
 
 <link rel="stylesheet" type="text/css" href="/Content/findevents.css">
 
+ <% if (events.length > 0) { %>
 
   <div class="eventWindow">
     <div class="eventHeader">
@@ -60,6 +61,12 @@
     </div>
   </div>
   
+  <% } else {  %>
+    <h1>
+      No available events
+    </h1>
+    <% } %>
+
 </div>
   <!-- <script>
    let eventImg=document.getElementById("evImg");
