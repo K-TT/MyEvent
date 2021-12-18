@@ -118,21 +118,27 @@
 
                             <div class="container">
                                 <!-- Function For Popular Events -->
-                                <%events.forEach(event => {%>
-                                    <%if (event.interestedCounter > 5) { %>
+                                <% let counter = 0; %>
+                                <% for (let i = 0; i < events.length; i++) { %>
+                                  
+                                    <%if (events[i].interestedCounter > 5) { %>
+                                        <% counter += 1; %>
                                         <h5 style="text-shadow: 1px 2px black; text-align: center;">
-                                            <%= event.eventName%>
+                                            <%= events[i].eventName%>
                                         </h5>
-                                        <a href="/events/event-details/<%= event._id %>" type="button" id="readmore" class="btn btn-info" style="float: right; margin-right:16px">Read More</a>
+                                        <a href="/events/event-details/<%= events[i]._id %>" type="button" id="readmore" class="btn btn-info" style="float: right; margin-right:16px">Read More</a>
                                         <p id="p_style"> Event description: </p>
                                         <li>
-                                            <%= event.description%>
+                                            <%= events[i].description%>
                                         </li>
                                         <li><img src="/Assets/images/location_pin.png" class="img-fluid" alt="Location Pin" width="20" height="20">
-                                            <%=event.city%>
+                                            <%=events[i].city%>
                                         </li>
                                         <% } %>
-                                            <%})%>
+                                            <%}%>
+                                            <% if (counter === 0) { %>
+                                            <p>Sorry no popular events</p>
+                                            <% } %>
 
                             </div>
                         </div>
