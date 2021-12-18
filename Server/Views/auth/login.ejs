@@ -4,6 +4,13 @@
   <!-- Main Navigation Section -->
     <%- include('../components/main_nav.ejs'); %>
 
+    <div class="row">
+      <!-- Message Area -->
+      <% if(messages.length > 0) {%>
+      <div class="alert alert-danger"><%= messages %></div>
+      <% } %>
+    </div>
+
         <div class="mainWindow">
             <h1 class id="signInTitle">Sign In</h1>
             <div class="formWindow">

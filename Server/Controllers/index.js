@@ -50,16 +50,25 @@ module.exports.processLoginPage = (req, res, next) => {
   (err,user,info) => {
       if(err)
       {
-          return next(err);
+        return res.render("auth/login", {
+          title: "Login",
+          page: "login",
+          messages: req.flash('loginMessage','Authentication Error'),
+          username: req.user ? req.user.username : ""
+        });
       }
       if(!user)
       {
-          req.flash('loginMessage','Authentication Error');
+          req.flash('loginMessage','User Does Not Exist');
           return res.redirect('/login');
       }
       req.login(user,(err) =>{
           if(err){
-              return next(err);
+            return res.render("auth/login", {
+              title: "Login",
+              page: "login",
+              username: req.user ? req.user.username : ""
+            });
           }
           return res.redirect('/');
       });
