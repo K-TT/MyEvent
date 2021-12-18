@@ -73,7 +73,11 @@
         <label class="form-label select-label">City</label>
       </div>
 
-      <% let bDay = (user.birthday.getUTCFullYear()) + "-" + (user.birthday.getMonth() + 1)+ "-" + (user.birthday.getUTCDate()); %>
+      <% let bDay = user.birthday.toLocaleDateString("fr-CA", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+      });%>
 
       <!-- Birthday input -->
             <div class="col">
